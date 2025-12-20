@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>九州自駕遊 2026 (V28)</title>
+    <title>九州自駕遊 2025 (V28.1)</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -60,7 +60,7 @@
             
             <div class="absolute bottom-10 left-6 text-white text-shadow drop-shadow-md">
                 <h1 class="text-2xl font-bold tracking-widest">KYUSHU 2026</h1>
-                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>九洲4人自駕</p>
+                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>2026 九洲自駕遊</p>
             </div>
         </div>
 
@@ -115,13 +115,20 @@
                                         <i class="fa-regular fa-note-sticky mt-0.5 text-xs flex-shrink-0 text-onsen-500"></i>
                                         <span class="whitespace-pre-line text-xs">{{ item.desc }}</span>
                                     </div>
-                                    <div v-if="item.dadAction" class="mt-3 p-3 bg-red-50 rounded-xl text-xs text-red-600 border border-red-100 flex items-start gap-2 shadow-sm">
+                                    
+                                    <div v-if="item.parking" class="mt-2 p-2 bg-blue-50 rounded-lg text-xs text-blue-700 border border-blue-100 flex items-start gap-2">
+                                        <i class="fa-solid fa-square-parking mt-0.5"></i>
+                                        <span>{{ item.parking }}</span>
+                                    </div>
+
+                                    <div v-if="item.dadAction" class="mt-2 p-3 bg-red-50 rounded-xl text-xs text-red-600 border border-red-100 flex items-start gap-2 shadow-sm">
                                         <div class="bg-red-200 text-red-700 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-person-cane text-[10px]"></i></div>
                                         <div>
                                             <strong class="block mb-0.5 text-red-700">爸爸行動 / 重點</strong>
                                             <span class="leading-relaxed">{{ item.dadAction }}</span>
                                         </div>
                                     </div>
+                                    
                                     <div class="flex flex-wrap gap-2 mt-2">
                                         <span v-if="item.desc && item.desc.includes('痛風')" class="text-[10px] bg-red-50 text-red-500 px-2 py-1 rounded-md font-bold border border-red-100">
                                             <i class="fa-solid fa-triangle-exclamation mr-1"></i>痛風注意
@@ -143,20 +150,53 @@
                     
                     <div class="bg-red-50 rounded-2xl p-4 border border-red-100 text-red-800 shadow-sm">
                         <div class="font-bold mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2"></i>核心戰術</div>
-                        <p class="text-sm font-bold">門口落客 🚙 ➔ 長輩坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
+                        <p class="text-sm font-bold">門口落客 🚙 ➔ 坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
                         <div class="mt-2 text-xs opacity-90 border-t border-red-200 pt-2">
                             <p><strong>車手：</strong>爸爸 & 姑丈 (輪流揸)</p>
                             <p><strong>媽媽SOP：</strong>每日 07:00 酒店房食香蕉/蛋糕墊底！</p>
                         </div>
                     </div>
 
+                    <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-2 border-red-100">
+                        <div class="bg-red-50 p-3 text-red-600 font-bold flex justify-between items-center">
+                            <span><i class="fa-regular fa-bell mr-2"></i>To-Book 搶訂鬧鐘 (4月行)</span>
+                            <span class="text-xs bg-red-200 px-2 py-1 rounded-full text-red-800">必做</span>
+                        </div>
+                        <div class="p-4 space-y-4 text-sm">
+                            <div>
+                                <h4 class="font-bold text-red-600 mb-2 border-b border-red-100 pb-1">🚨 Level 1: 即刻做 (Immediate)</h4>
+                                <ul class="space-y-2 text-xs text-gray-600">
+                                    <li><span class="font-bold text-slate-800">🏨 黑川 深山山莊:</span> <span class="text-red-500">Deadline: Now!</span><br><span class="bg-gray-100 p-1 rounded select-all block mt-1">"One guest cannot eat seafood and offal. Please arrange beef or pork. Need Golf Cart service for elderly."</span></li>
+                                    <li><span class="font-bold text-slate-800">🚘 租車 (Noah/Alphard):</span> <span class="text-red-500">1月尾前</span><br>記得剔 ETC & NOC 全保。</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-orange-500 mb-2 border-b border-orange-100 pb-1">⚠️ Level 2: 3月初 (1個月前)</h4>
+                                <ul class="space-y-2 text-xs text-gray-600">
+                                    <li><span class="font-bold text-slate-800">🍢 燒鳥 Torine:</span> 3月9日 (請酒店幫手打電話)</li>
+                                    <li><span class="font-bold text-slate-800">🚂 高千穗小火車:</span> 3月11日 (00:00 日本時間開搶)</li>
+                                    <li><span class="font-bold text-slate-800">🍲 華味鳥 (天神):</span> 3月12日 (官網訂 Table Seat)</li>
+                                    <li><span class="font-bold text-slate-800">🥩 佐賀牛 季樂:</span> 3月13日 (TableCheck)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-500 mb-2 border-b border-blue-100 pb-1">🛠️ Level 3: 3月尾 (2星期前)</h4>
+                                <ul class="space-y-2 text-xs text-gray-600">
+                                    <li><span class="font-bold text-slate-800">🪪 國際車牌 (IDP):</span> 3月25日 (爸爸+姑丈)</li>
+                                    <li><span class="font-bold text-slate-800">📶 SIM 卡 (6張):</span> 3月25日 (每人一張)</li>
+                                    <li><span class="font-bold text-slate-800">♿ 輪椅服務:</span> 4月2日 (致電 CX 確認)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="bg-white rounded-2xl p-4 soft-shadow">
-                        <h3 class="font-bold text-gray-600 mb-3"><i class="fa-solid fa-clipboard-check mr-2"></i>出發前 Checklist</h3>
+                        <h3 class="font-bold text-gray-600 mb-3"><i class="fa-solid fa-clipboard-check mr-2"></i>出發前 Checklist (V28)</h3>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 護照 (4本) 📕</div>
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 國際車牌 (爸爸+姑丈) 🪪</div>
-                            <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 香港車牌正本 🪪</div>
-                            <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 痛風藥/血壓藥 💊</div>
+                            <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 香港車牌正本 (爸爸+姑丈) 🪪</div>
+                            <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 常用藥物 (痛風/血壓) 💊</div>
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 日本上網卡 📶</div>
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> ETC 卡 (取車時確認) 💳</div>
                         </div>
@@ -343,7 +383,7 @@
                     ],
 
                     hotels: [
-                        { name: '別府溫泉 三泉閣', dates: '4/9', phone: '0977-22-8888' },
+                        { name: '御宿 野乃別府', dates: '4/9', phone: '0977-21-5489' },
                         { name: '黒川温泉 深山山荘', dates: '4/10', phone: '0967-44-0553' },
                         { name: '御宿 野乃熊本', dates: '4/11', phone: '096-311-5489' },
                         { name: 'Hotel JAL City Fukuoka Tenjin', dates: '4/12 - 4/14', phone: '092-712-7575' }
@@ -352,45 +392,47 @@
                     itineraryData: [
                         // Day 1: 4/9 福岡 -> 別府
                         [
-                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 出1F大廳 -> 去租車櫃檯\n2. 搭電梯上3F門口\n3. 等 Shuttle Bus 去取車', transportType: 'car', location: '福岡機場國際線' },
-                            { id: 2, time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸/姑丈輪流揸車', transportType: 'car', travelTime: '1h 45m' },
-                            { id: 3, time: '19:30', title: '晚餐: 燒鳥 Torine', category: 'food', desc: 'Tel: 0977-21-1666\nMapcode: 46 405 528*58', dadAction: '車駛到門口。爸爸媽媽落車入去坐。姑丈去泊車。', transportType: 'car', location: '焼き鳥 鳥ネ' },
-                            { id: 4, time: '21:00', title: 'Check-in 三泉閣', category: 'hotel', desc: 'Tel: 0977-22-8888\n酒店有免費停車場', dadAction: '門口落客位好闊，放低行李。', transportType: 'car', location: '別府溫泉 三泉閣' }
+                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 出1F大廳 -> 去租車櫃檯\n2. 搭電梯上3F門口\n3. 等 Shuttle Bus 去取車\n4. 姑丈拍片驗車', transportType: 'car', location: '福岡機場國際線' },
+                            { id: 2, time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸/姑丈輪流揸車\n行程: 144km (約 1小時55分)', transportType: 'car', travelTime: '1h 55m' },
+                            { id: 3, time: '19:30', title: '晚餐: 燒鳥 Torine', category: 'food', desc: 'Tel: 0977-21-1666\n叫串燒拼盤 (少內臟)', parking: '泊對面/隔籬 Coin Parking', dadAction: '車駛到門口。爸爸媽媽落車入去坐。姑丈去泊車。', transportType: 'car', location: '焼き鳥 鳥ネ' },
+                            { id: 4, time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 0977-21-5489', parking: '酒店 Tower Parking (或特約場)', dadAction: '門口落客。全館塌塌米，入大堂要除鞋。', transportType: 'car', location: '御宿 野乃別府' }
                         ],
                         // Day 2: 4/10 別府 -> 黑川
                         [
-                            { id: 21, time: '08:30', title: '早餐: 岡本屋', category: 'food', desc: 'Tel: 0977-66-3228\n必食: 地獄蒸布甸 / 溫泉蛋三文治', dadAction: '門口落客，爸爸入去搵位。', transportType: 'car', location: '岡本屋 売店' },
-                            { id: 22, time: '10:00', title: '海地獄', category: 'sightseeing', desc: 'Tel: 0977-66-0121\n睇藍色溫泉池', dadAction: '售票處門口落客，平路。', transportType: 'walk', location: '海地獄' },
-                            { id: 23, time: '10:45', title: '午餐: 地獄蒸工房 鐵輪', category: 'food', desc: 'Tel: 0977-66-3775\n自己蒸野食', dadAction: '爸爸入去搵位坐。姑丈/姑姐去買食券同攞食材。', transportType: 'walk', location: '地獄蒸し工房 鉄輪' },
-                            { id: 24, time: '13:00', title: '由布院 金鱗湖', category: 'sightseeing', desc: '導航: 天祖神社 (269 359 555*55)\n一定要泊呢個場!', dadAction: '落車行 10 步就係湖邊。\n🐶 姑姐任務: 行去 Snoopy 茶屋掃貨，爸爸在湖邊/Cafe等。', transportType: 'car', location: '金鱗湖' },
-                            { id: 25, time: '16:30', title: 'Check-in 深山山莊', category: 'hotel', desc: 'Tel: 0967-44-0553\n黑川溫泉', dadAction: '1. 車駛到 Lobby 門口\n2. 同職員講 "Golf Cart Please"\n3. 坐車送爸爸去房', transportType: 'car', location: '黒川温泉 深山山荘' }
+                            { id: 21, time: '08:30', title: '早餐: 岡本屋', category: 'food', desc: 'Tel: 0977-66-3228\n必食: 地獄蒸布甸 / 溫泉蛋三文治', parking: '店舖對面有專用免費空地', dadAction: '門口落客，爸爸入去搵位。', transportType: 'car', location: '岡本屋 売店' },
+                            { id: 22, time: '10:00', title: '海地獄', category: 'sightseeing', desc: 'Tel: 0977-66-0121\n睇藍色溫泉池', parking: '門口有超大免費停車場', dadAction: '售票處門口落客，平路。', transportType: 'walk', location: '海地獄' },
+                            { id: 23, time: '10:45', title: '午餐: 地獄蒸工房 鐵輪', category: 'food', desc: 'Tel: 0977-66-3775\n自己蒸野食', parking: '導航去「鉄輪温泉地区駐車場」(46 521 268*52)', dadAction: '爸爸入去搵位坐。姑丈/姑姐去買食券同攞食材。', transportType: 'walk', location: '地獄蒸し工房 鉄輪' },
+                            { id: 24, time: '13:00', title: '由布院 金鱗湖', category: 'sightseeing', desc: '導航: 天祖神社 (269 359 555*55)', parking: '一定要泊呢個場!', dadAction: '落車行 10 步就係湖邊。\n🐶 姑姐任務: 行去 Snoopy 茶屋掃貨，爸爸在湖邊/Cafe等。', transportType: 'car', location: '金鱗湖' },
+                            { id: 25, time: '16:30', title: 'Check-in 深山山莊', category: 'hotel', desc: 'Tel: 0967-44-0553\n黑川溫泉', parking: '直接駛入 Lobby 門口', dadAction: '1. 車駛到 Lobby 門口\n2. 同職員講 "Golf Cart Please"\n3. 坐車送爸爸去房', transportType: 'car', location: '黒川温泉 深山山荘' }
                         ],
                         // Day 3: 4/11 黑川 -> 高千穗 -> 熊本
                         [
-                            { id: 31, time: '11:00', title: '高千穗小火車', category: 'sightseeing', desc: 'Tel: 0982-72-3216\n全程坐定定睇風景', dadAction: '行去月台係平路。', transportType: 'car', location: '高千穗天照鐵道' },
-                            { id: 32, time: '13:30', title: '午餐: 紅牛丼 いわさき', category: 'food', desc: 'Tel: 0967-34-0530\n多人排隊', dadAction: '爸爸留喺車上嘆冷氣。姑姐攞飛排隊，就到先Call爸爸。', transportType: 'car', location: 'Imakin Shokudo' },
-                            { id: 33, time: '19:00', title: '晚餐: 勝烈亭 豬排', category: 'food', desc: 'Tel: 096-322-8771\n新市街本店', dadAction: '泊辛島公園地下停車場 (096-322-0024)，有電梯上地面。', transportType: 'walk', location: '勝烈亭 新市街本店' },
-                            { id: 34, time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 096-311-5489\n熊本市內', dadAction: '門口落客。全館塌塌米，入門要除鞋。', transportType: 'car', location: '御宿 野乃熊本' }
+                            { id: 31, time: '11:00', title: '高千穗小火車', category: 'sightseeing', desc: 'Tel: 0982-72-3216\n全程坐定定睇風景', parking: '車站旁有免費停車場', dadAction: '行去月台係平路，坐定定睇風景。', transportType: 'car', location: '高千穗天照鐵道' },
+                            { id: 32, time: '13:30', title: '午餐: 紅牛丼 いわさき', category: 'food', desc: 'Tel: 0967-34-0530\n多人排隊', parking: '舖頭前有位，或泊隔籬阿蘇神社場', dadAction: '爸爸留喺車上嘆冷氣。姑姐攞飛排隊，就到先Call爸爸。', transportType: 'car', location: 'Imakin Shokudo' },
+                            { id: 33, time: '14:45', title: '甜品: ASO MILK FACTORY', category: 'food', desc: 'Tel: 0967-23-2110\n阿蘇牛奶工廠', parking: '門口有超大免費場', dadAction: '入室內坐低。姑姐買雪糕俾爸爸食。去埋洗手間先上車。', transportType: 'car', location: 'ASO MILK FACTORY' },
+                            { id: 34, time: '19:00', title: '晚餐: 勝烈亭 豬排', category: 'food', desc: 'Tel: 096-322-8771\n新市街本店', parking: '泊辛島公園地下停車場 (096-322-0024)', dadAction: '泊好車搭電梯上地面。地面行去餐廳係平路。', transportType: 'walk', location: '勝烈亭 新市街本店' },
+                            { id: 35, time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 096-311-5489\n熊本市內', parking: '酒店後門立體場(窄)，或泊返辛島公園地下場', dadAction: '門口落客。全館塌塌米，入門要除鞋。', transportType: 'car', location: '御宿 野乃熊本' }
                         ],
                         // Day 4: 4/12 柳川 -> 福岡
                         [
-                            { id: 41, time: '12:30', title: '午餐: 柳川御花 - 對月館', category: 'food', desc: 'Tel: 0944-73-2189\n蒸籠鰻魚飯 (不坐船)', dadAction: '停車場在正門對面，全程平路。', transportType: 'car', location: '柳川藩主立花邸 御花' },
-                            { id: 42, time: '15:30', title: '太宰府天滿宮', category: 'sightseeing', desc: 'Mapcode: 55 364 013*77', dadAction: '參道好長。爸爸行到第一間 Starbucks 就入去坐低飲野。', transportType: 'car', location: '太宰府天滿宮' },
-                            { id: 43, time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575\n就在赤坂站出口旁', dadAction: '【重點】酒店正門有「落客彎位」。一定要駛入去放低爸爸同行李。姑丈再去泊車。', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin' },
-                            { id: 44, time: '19:30', title: '晚餐: 博多華味鳥 天神店', category: 'food', desc: 'Tel: 092-733-6050\n水炊雞', dadAction: '車先駛到餐廳附近巷口放低爸爸。姑丈去 Times 福岡天神 (13 318 402*15) 泊車 (行路2分鐘)。', transportType: 'car', location: '博多華味鳥 天神店' }
+                            { id: 41, time: '12:30', title: '午餐: 柳川御花 - 對月館', category: 'food', desc: 'Tel: 0944-73-2189\n蒸籠鰻魚飯 (不坐船)', parking: '御花有專用免費停車場', dadAction: '停車場在正門對面，全程平路。', transportType: 'car', location: '柳川藩主立花邸 御花' },
+                            { id: 42, time: '15:30', title: '太宰府天滿宮', category: 'sightseeing', desc: 'Mapcode: 55 364 013*77', parking: '大宰府駐車センター (位多好泊)', dadAction: '參道好長。爸爸行到第一間 Starbucks 就入去坐低飲野。', transportType: 'car', location: '太宰府天滿宮' },
+                            { id: 43, time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575\n就在赤坂站出口旁', dadAction: '【重點】酒店正門有「落客彎位」。一定要駛入去放低爸爸同行李。姑丈再去泊車 (Times/酒店場)。', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin' },
+                            { id: 44, time: '19:30', title: '晚餐: 博多華味鳥 天神店', category: 'food', desc: 'Tel: 092-733-6050\n水炊雞', parking: 'Times 福岡天神 (13 318 402*15)', dadAction: '車先駛到餐廳附近巷口放低爸爸。湯高鈉飲一碗就好。', transportType: 'car', location: '博多華味鳥 天神店' }
                         ],
                          // Day 5: 4/13 福岡市區
                          [
-                            { id: 51, time: '12:00', title: '午餐: 佐賀牛 季樂', category: 'food', desc: 'Tel: 092-737-2122\n博多店', dadAction: '餐廳在 2 樓，有電梯。', transportType: 'car', location: '季樂 博多店' },
-                            { id: 52, time: '14:00', title: 'LaLaport 福岡', category: 'shopping', desc: 'Tel: 092-707-9820\n泊 South Entrance', dadAction: '1. 搵 1F 星乃咖啡店 / Godiva\n2. 爸爸坐低飲咖啡\n3. 女人去掃貨', transportType: 'car', location: 'LaLaport Fukuoka' },
-                            { id: 53, time: '18:30', title: '晚餐: 一蘭 天神西通り', category: 'food', desc: 'Tel: 092-713-6631\n長方形碗 (釜醬汁)', dadAction: '爸爸嚴禁飲湯！', transportType: 'car', location: '一蘭 天神西通り店' }
+                            { id: 51, time: '12:00', title: '午餐: 佐賀牛 季樂', category: 'food', desc: 'Tel: 092-737-2122\n博多店', parking: '泊對面河邊春吉公園路Coin Parking', dadAction: '餐廳在 2 樓，有電梯。', transportType: 'car', location: '季樂 博多店' },
+                            { id: 52, time: '14:00', title: 'LaLaport 福岡', category: 'shopping', desc: 'Tel: 092-707-9820\n泊 South Entrance', parking: '駛入 South Parking (南停車場)', dadAction: '1. 車泊 South Entrance\n2. 搵 1F 星乃咖啡店/Godiva\n3. 爸爸坐低，女人去掃貨', transportType: 'car', location: 'LaLaport Fukuoka' },
+                            { id: 53, time: '18:30', title: '晚餐: 一蘭 天神西通り', category: 'food', desc: 'Tel: 092-713-6631\n長方形碗 (釜醬汁)', parking: '泊天神地下街停車場或附近 Times', dadAction: '爸爸嚴禁飲湯！', transportType: 'car', location: '一蘭 天神西通り店' }
                         ],
                         // Day 6: 4/14 回程
                          [
                             { id: 61, time: '10:00', title: '買包: Full Full Hakata', category: 'food', desc: 'Tel: 092-292-7838\n明太子法包', dadAction: '門口大馬路，爸爸姑丈留車上。媽媽姑姐衝落去買。\n金句: "Cut Please" ✂️', transportType: 'car', location: 'Full Full Hakata' },
-                            { id: 62, time: '11:30', title: '福岡機場 (國內線)', category: 'shopping', desc: 'Tel: 092-621-6059\n泊好車，2F 買努努雞', dadAction: '買完去 3F 食拉麵/牛腸鍋。', transportType: 'car', location: '福岡機場 國內線' },
-                            { id: 63, time: '13:30', title: '還車 & 去機場', category: 'transport', desc: '導航去租車公司', dadAction: '1. 所有人+行李落車 (爸媽坐低)\n2. 姑丈驗車\n3. 全家搭 Shuttle 去國際線', transportType: 'car', location: '福岡機場' },
-                            { id: 64, time: '14:30', title: 'Check-in (CX589)', category: 'flight', desc: '同地勤講: "Wheelchair Assistance Please"', dadAction: '由職員推爸爸去閘口！🥰', transportType: 'walk', location: '福岡機場 國際線' }
+                            { id: 62, time: '11:30', title: '福岡機場 (國內線)', category: 'shopping', desc: 'Tel: 092-621-6059\n泊好車，2F 買努努雞', parking: '駛入國內線立體停車場', dadAction: '買完去 3F 食拉麵/牛腸鍋。', transportType: 'car', location: '福岡機場 國內線' },
+                            { id: 63, time: '12:15', title: '午餐: 一幸舍 / Oyama', category: 'food', desc: '國內線 3F', dadAction: '爸爸唔好飲湯。', transportType: 'walk', location: '福岡機場' },
+                            { id: 64, time: '13:30', title: '還車 & 去機場', category: 'transport', desc: '導航去租車公司', dadAction: '1. 所有人+行李落車 (爸媽坐低)\n2. 姑丈驗車\n3. 全家搭 Shuttle 去國際線', transportType: 'car', location: '福岡機場' },
+                            { id: 65, time: '14:30', title: 'Check-in (CX589)', category: 'flight', desc: '同地勤講: "Wheelchair Assistance Please"', dadAction: '由職員推爸爸去閘口！🥰', transportType: 'walk', location: '福岡機場 國際線' }
                         ]
                     ],
 
