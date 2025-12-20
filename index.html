@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>九州自駕遊 2025 (V28.1)</title>
+    <title>九州自駕遊 2026 (V28.2)</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -91,7 +91,7 @@
 
                         <div v-for="(item, idx) in currentDayItinerary" :key="item.id" class="relative pl-12 pb-14 group">
                             <div v-if="idx > 0" class="absolute -top-9 left-12 right-0 flex items-center text-xs text-onsen-600 mb-2 z-50">
-                                <span class="bg-onsen-100 px-2 py-0.5 rounded-full border border-onsen-200 flex items-center gap-1 shadow-sm">
+                                <span class="bg-onsen-100 px-3 py-1 rounded-full border border-onsen-200 flex items-center gap-1 shadow-sm font-bold whitespace-nowrap">
                                     <i :class="getTransportIcon(item.transportType)"></i>
                                     {{ item.travelTime || '移動' }}
                                 </span>
@@ -392,10 +392,10 @@
                     itineraryData: [
                         // Day 1: 4/9 福岡 -> 別府
                         [
-                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 出1F大廳 -> 去租車櫃檯\n2. 搭電梯上3F門口\n3. 等 Shuttle Bus 去取車\n4. 姑丈拍片驗車', transportType: 'car', location: '福岡機場國際線' },
-                            { id: 2, time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸/姑丈輪流揸車\n行程: 144km (約 1小時55分)', transportType: 'car', travelTime: '1h 55m' },
+                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 到1F櫃檯辦手續\n2. 上3F門口搭接駁車\n3. 取車 Noah/Alphard', transportType: 'car', location: '福岡機場國際線' },
+                            { id: 2, time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸開 ACC 輕鬆揸\n行程: 144km (約 1小時55分)', transportType: 'car', travelTime: '144km (1hr 55m)' },
                             { id: 3, time: '19:30', title: '晚餐: 燒鳥 Torine', category: 'food', desc: 'Tel: 0977-21-1666\n叫串燒拼盤 (少內臟)', parking: '泊對面/隔籬 Coin Parking', dadAction: '車駛到門口。爸爸媽媽落車入去坐。姑丈去泊車。', transportType: 'car', location: '焼き鳥 鳥ネ' },
-                            { id: 4, time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 0977-21-5489', parking: '酒店 Tower Parking (或特約場)', dadAction: '門口落客。全館塌塌米，入大堂要除鞋。', transportType: 'car', location: '御宿 野乃別府' }
+                            { id: 35, time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 0977-21-5489', parking: '酒店 Tower Parking (或特約場)', dadAction: '門口落客位好闊，放低行李。全館塌塌米，入大堂要除鞋。', transportType: 'car', location: '御宿 野乃別府' }
                         ],
                         // Day 2: 4/10 別府 -> 黑川
                         [
@@ -418,13 +418,15 @@
                             { id: 41, time: '12:30', title: '午餐: 柳川御花 - 對月館', category: 'food', desc: 'Tel: 0944-73-2189\n蒸籠鰻魚飯 (不坐船)', parking: '御花有專用免費停車場', dadAction: '停車場在正門對面，全程平路。', transportType: 'car', location: '柳川藩主立花邸 御花' },
                             { id: 42, time: '15:30', title: '太宰府天滿宮', category: 'sightseeing', desc: 'Mapcode: 55 364 013*77', parking: '大宰府駐車センター (位多好泊)', dadAction: '參道好長。爸爸行到第一間 Starbucks 就入去坐低飲野。', transportType: 'car', location: '太宰府天滿宮' },
                             { id: 43, time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575\n就在赤坂站出口旁', dadAction: '【重點】酒店正門有「落客彎位」。一定要駛入去放低爸爸同行李。姑丈再去泊車 (Times/酒店場)。', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin' },
-                            { id: 44, time: '19:30', title: '晚餐: 博多華味鳥 天神店', category: 'food', desc: 'Tel: 092-733-6050\n水炊雞', parking: 'Times 福岡天神 (13 318 402*15)', dadAction: '車先駛到餐廳附近巷口放低爸爸。湯高鈉飲一碗就好。', transportType: 'car', location: '博多華味鳥 天神店' }
+                            { id: 44, time: '19:30', title: '晚餐: 博多華味鳥 天神店', category: 'food', desc: 'Tel: 092-733-6050\n水炊雞', parking: 'Times 福岡天神 (13 318 402*15)', dadAction: '車先駛到餐廳附近巷口放低爸爸。湯高鈉飲一碗就好。', transportType: 'car', location: '博多華味鳥 天神店' },
+                            { id: 45, time: '21:30', title: '回酒店休息', category: 'hotel', desc: 'Hotel JAL City', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin' }
                         ],
                          // Day 5: 4/13 福岡市區
                          [
                             { id: 51, time: '12:00', title: '午餐: 佐賀牛 季樂', category: 'food', desc: 'Tel: 092-737-2122\n博多店', parking: '泊對面河邊春吉公園路Coin Parking', dadAction: '餐廳在 2 樓，有電梯。', transportType: 'car', location: '季樂 博多店' },
                             { id: 52, time: '14:00', title: 'LaLaport 福岡', category: 'shopping', desc: 'Tel: 092-707-9820\n泊 South Entrance', parking: '駛入 South Parking (南停車場)', dadAction: '1. 車泊 South Entrance\n2. 搵 1F 星乃咖啡店/Godiva\n3. 爸爸坐低，女人去掃貨', transportType: 'car', location: 'LaLaport Fukuoka' },
-                            { id: 53, time: '18:30', title: '晚餐: 一蘭 天神西通り', category: 'food', desc: 'Tel: 092-713-6631\n長方形碗 (釜醬汁)', parking: '泊天神地下街停車場或附近 Times', dadAction: '爸爸嚴禁飲湯！', transportType: 'car', location: '一蘭 天神西通り店' }
+                            { id: 53, time: '18:30', title: '晚餐: 一蘭 天神西通り', category: 'food', desc: 'Tel: 092-713-6631\n長方形碗 (釜醬汁)', parking: '泊天神地下街停車場或附近 Times', dadAction: '爸爸嚴禁飲湯！', transportType: 'car', location: '一蘭 天神西通り店' },
+                            { id: 54, time: '21:00', title: '回酒店休息', category: 'hotel', desc: 'Hotel JAL City', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin' }
                         ],
                         // Day 6: 4/14 回程
                          [
