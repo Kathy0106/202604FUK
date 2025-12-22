@@ -156,6 +156,13 @@
                             <p><strong>媽媽SOP：</strong>每日 07:00 酒店房食香蕉/蛋糕墊底！</p>
                         </div>
                     </div>
+                    
+                    <div class="bg-blue-50 rounded-2xl p-4 border border-blue-200 text-center">
+                        <a href="https://docs.google.com/document/d/1-9dK_8o7HFytaM7hXTRCqiuSNXSW5wifVBBlOKS7PQQ/edit?usp=drivesdk" target="_blank" class="block w-full bg-blue-500 text-white font-bold py-3 rounded-xl shadow-md hover:bg-blue-600 transition-colors">
+                            <i class="fa-solid fa-file-lines mr-2"></i> 查看 Google Doc 完整行程
+                        </a>
+                        <p class="text-xs text-blue-400 mt-2">給家人閱讀的詳細版 (V30)</p>
+                    </div>
 
                     <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-l-4 border-orange-400">
                         <div class="bg-orange-50 p-3 text-orange-700 font-bold flex justify-between items-center">
@@ -207,7 +214,7 @@
                     </div>
 
                     <div class="bg-white rounded-2xl p-4 soft-shadow">
-                        <h3 class="font-bold text-gray-600 mb-3"><i class="fa-solid fa-clipboard-check mr-2"></i>出發前 Checklist</h3>
+                        <h3 class="font-bold text-gray-600 mb-3"><i class="fa-solid fa-clipboard-check mr-2"></i>出發前 Checklist (V30)</h3>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 護照 (4本) 📕</div>
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 國際車牌 (爸爸+姑丈) 🪪</div>
@@ -407,12 +414,13 @@
                     ],
 
                     diningList: [
-                        { date: '4/9', time: '19:30', name: '燒鳥 鳥ネ (Torine)', addr: '別府市北浜1-10-12', tel: '0977-21-1666', note: '電話預約' },
+                        { date: '4/9', time: '19:30', name: '燒鳥 鳥ネ (Torine)', addr: '別府市北浜1-10-12', tel: '0977-21-1666', note: 'walk-in 排隊' },
                         { date: '4/10', time: '10:45', name: '地獄蒸工房 鉄輪', addr: '別府市鉄輪559-1', tel: '0977-66-3775', note: '11點前排隊' },
                         { date: '4/11', time: '13:30', name: '紅牛丼 ごとう屋 (Gotoya)', addr: '阿蘇市一の宮町宮地3054', tel: '0967-22-0266', note: '免費泊車' },
                         { date: '4/11', time: '19:00', name: '勝烈亭 豬排', addr: '熊本市中央区新市街8-18', tel: '096-322-8771', note: '泊辛島公園地下' },
                         { date: '4/12', time: '12:30', name: '柳川御花 (對月館)', addr: '柳川市新外町1', tel: '0944-73-2189', note: '蒸籠鰻魚飯' },
                         { date: '4/12', time: '19:30', name: '博多華味鳥 (天神店)', addr: '福岡市中央区天神1-15-6', tel: '092-733-6050', note: '官網訂座' },
+                        { date: '4/13', time: '09:00', name: 'Bills 福岡 (水上公園)', addr: '福岡市中央区西中洲13-1', tel: '092-733-2555', note: '世界第一早餐' },
                         { date: '4/13', time: '12:00', name: '佐賀牛 季樂 (博多店)', addr: '福岡市博多区中洲5-2-1', tel: '092-737-2122', note: 'TableCheck訂座' },
                         { date: '4/13', time: '18:30', name: '一蘭 (天神西通り店)', addr: '福岡市中央区大名2-1-57', tel: '092-713-6631', note: '長方形碗' }
                     ],
@@ -420,7 +428,7 @@
                     itineraryData: [
                         // Day 1: 4/9 福岡 -> 別府
                         [
-                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 到1F櫃檯辦手續\n2. 上3F門口搭接駁車\n3. 取車 Noah/Alphard\n4. 姑丈拍片驗車', transportType: 'car', location: '福岡機場國際線' },
+                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 出1F大廳 -> 去租車櫃檯\n2. 搭電梯上3F門口\n3. 等 Shuttle Bus 去取車\n4. 姑丈拍片驗車', transportType: 'car', location: '福岡機場國際線' },
                             { id: 2, time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸開 ACC 輕鬆揸\n行程: 144km (約 1小時55分)', transportType: 'car', travelTime: '取車 (1.5hr)' },
                             { id: 3, time: '19:30', title: '晚餐: 燒鳥 Torine', category: 'food', desc: 'Tel: 0977-21-1666\n叫串燒拼盤 (少內臟)', parking: '泊對面/隔籬 Coin Parking', dadAction: '車駛到門口。爸爸媽媽落車入去坐。姑丈去泊車。', transportType: 'car', location: '焼き鳥 鳥ネ', travelTime: '144km (約2小時)' },
                             { id: 4, time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 0977-21-5489', parking: '酒店 Tower Parking (或特約場)', dadAction: '門口落客位好闊，放低行李。全館塌塌米，入大堂要除鞋。', transportType: 'car', location: '御宿 野乃別府', travelTime: '0.4km (2分鐘)' }
@@ -431,7 +439,7 @@
                             { id: 22, time: '10:00', title: '海地獄', category: 'sightseeing', desc: 'Tel: 0977-66-0121\n睇藍色溫泉池', parking: '門口有超大免費停車場', dadAction: '售票處門口落客，平路。', transportType: 'walk', location: '海地獄', travelTime: '2.8km (7分鐘)' },
                             { id: 23, time: '10:45', title: '午餐: 地獄蒸工房 鐵輪', category: 'food', desc: 'Tel: 0977-66-3775\n自己蒸野食', parking: '導航去「鉄輪温泉地区駐車場」(46 521 268*52)', dadAction: '爸爸入去搵位坐。姑丈/姑姐去買食券同攞食材。', transportType: 'walk', location: '地獄蒸し工房 鉄輪', travelTime: '0.9km (5分鐘)' },
                             { id: 24, time: '13:00', title: '由布院 金鱗湖', category: 'sightseeing', desc: '導航: 天祖神社 (269 359 555*55)', parking: '一定要泊呢個場!', dadAction: '落車行 10 步就係湖邊。\n🐶 姑姐任務: 行去 Snoopy 茶屋掃貨，爸爸在湖邊/Cafe等。', transportType: 'car', location: '金鱗湖', travelTime: '20.6km (35分鐘)' },
-                            { id: 25, time: '16:30', title: 'Check-in 深山山莊', category: 'hotel', desc: 'Tel: 0967-44-1101 / 0967-44-0336\n地址: 熊本県阿蘇郡南小国町満願寺6393', parking: '直接駛入 Lobby 門口', dadAction: '1. 車駛到 Lobby 門口\n2. 同職員講 "Golf Cart Please"\n3. 坐車送爸爸去房', transportType: 'car', location: '黒川温泉 深山山荘', travelTime: '51.6km (1小時10分)' }
+                            { id: 25, time: '16:30', title: 'Check-in 深山山莊', category: 'hotel', desc: 'Tel: 0967-44-0553\n黑川溫泉', parking: '直接駛入 Lobby 門口', dadAction: '1. 車駛到 Lobby 門口\n2. 同職員講 "Golf Cart Please"\n3. 坐車送爸爸去房', transportType: 'car', location: '黒川温泉 深山山荘', travelTime: '51.6km (1小時10分)' }
                         ],
                         // Day 3: 4/11 黑川 -> 高千穗 -> 熊本
                         [
@@ -451,7 +459,9 @@
                         ],
                          // Day 5: 4/13 福岡市區
                          [
-                            { id: 51, time: '12:00', title: '午餐: 佐賀牛 季樂', category: 'food', desc: 'Tel: 092-737-2122\n博多店', parking: '泊對面河邊春吉公園路Coin Parking', dadAction: '餐廳在 2 樓，有電梯。', transportType: 'car', location: '季樂 博多店', travelTime: '1.8km (10分鐘)' },
+                            { id: 50, time: '09:00', title: '早餐: Bills 福岡', category: 'food', desc: 'Tel: 092-733-2555\n世界第一早餐 (Pancake)', parking: '西中洲駐車場 (無車位需泊隔離)', dadAction: '全平路，輪椅方便。', transportType: 'car', location: 'Bills Fukuoka', travelTime: '1km (5分鐘)' },
+                            { id: 505, time: '10:30', title: '櫛田神社', category: 'sightseeing', desc: 'Tel: 092-291-2951\n博多守護神 (山笠)', parking: '南門停車場 (免費位少)', dadAction: '大部份平路，輪椅可通。', transportType: 'car', location: 'Kushida Shrine', travelTime: '1.5km (10分鐘)' },
+                            { id: 51, time: '12:00', title: '午餐: 佐賀牛 季樂', category: 'food', desc: 'Tel: 092-737-2122\n博多店', parking: '泊對面河邊春吉公園路Coin Parking', dadAction: '餐廳在 2 樓，有電梯。', transportType: 'car', location: '季樂 博多店', travelTime: '0.8km (5分鐘)' },
                             { id: 52, time: '14:00', title: 'LaLaport 福岡', category: 'shopping', desc: 'Tel: 092-707-9820\n泊 South Entrance', parking: '駛入 South Parking (南停車場)', dadAction: '1. 車泊 South Entrance\n2. 搵 1F 星乃咖啡店/Godiva\n3. 爸爸坐低，女人去掃貨', transportType: 'car', location: 'LaLaport Fukuoka', travelTime: '10.7km (20分鐘)' },
                             { id: 53, time: '18:30', title: '晚餐: 一蘭 天神西通り', category: 'food', desc: 'Tel: 092-713-6631\n長方形碗 (釜醬汁)', parking: '泊天神地下街停車場或附近 Times', dadAction: '爸爸嚴禁飲湯！', transportType: 'car', location: '一蘭 天神西通り店', travelTime: '12.1km (30分鐘)' },
                             { id: 54, time: '21:00', title: '回酒店休息', category: 'hotel', desc: 'Hotel JAL City', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', travelTime: '2km (10分鐘)' }
