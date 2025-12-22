@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>九州自駕遊 2025 (V29.1)</title>
+    <title>九州自駕遊 2026 (V30)</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -59,8 +59,8 @@
             </div>
             
             <div class="absolute bottom-10 left-6 text-white text-shadow drop-shadow-md">
-                <h1 class="text-2xl font-bold tracking-widest">KYUSHU 2025</h1>
-                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>V29.1 最終修正版</p>
+                <h1 class="text-2xl font-bold tracking-widest">KYUSHU 2026</h1>
+                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>2026 九洲自駕遊</p>
             </div>
         </div>
 
@@ -150,16 +150,33 @@
                     
                     <div class="bg-red-50 rounded-2xl p-4 border border-red-100 text-red-800 shadow-sm">
                         <div class="font-bold mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2"></i>核心戰術</div>
-                        <p class="text-sm font-bold">門口落客 🚙 ➔ 長輩坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
+                        <p class="text-sm font-bold">門口落客 🚙 ➔ 坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
                         <div class="mt-2 text-xs opacity-90 border-t border-red-200 pt-2">
                             <p><strong>車手：</strong>爸爸 & 姑丈 (輪流揸)</p>
                             <p><strong>媽媽SOP：</strong>每日 07:00 酒店房食香蕉/蛋糕墊底！</p>
                         </div>
                     </div>
 
+                    <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-l-4 border-orange-400">
+                        <div class="bg-orange-50 p-3 text-orange-700 font-bold flex justify-between items-center">
+                            <span><i class="fa-solid fa-utensils mr-2"></i>餐廳情報總覽</span>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div v-for="res in diningList" :key="res.name" class="flex gap-3 text-sm border-b border-gray-100 pb-2 last:border-0">
+                                <div class="font-bold text-orange-600 w-12 flex-shrink-0 text-center leading-tight">{{ res.date }}<br><span class="text-xs text-gray-400">{{ res.time }}</span></div>
+                                <div>
+                                    <div class="font-bold text-slate-800">{{ res.name }}</div>
+                                    <div class="text-xs text-gray-500 mt-1 flex items-center"><i class="fa-solid fa-location-dot mr-1"></i>{{ res.addr }}</div>
+                                    <div class="text-xs text-gray-500 mt-0.5"><i class="fa-solid fa-phone mr-1"></i>{{ res.tel }}</div>
+                                    <div v-if="res.note" class="text-xs text-red-500 mt-1 font-bold bg-red-50 px-1 rounded inline-block">{{ res.note }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-2 border-red-100">
                         <div class="bg-red-50 p-3 text-red-600 font-bold flex justify-between items-center">
-                            <span><i class="fa-regular fa-bell mr-2"></i>To-Book 搶訂鬧鐘 (4月行)</span>
+                            <span><i class="fa-regular fa-bell mr-2"></i>To-Book 搶訂鬧鐘</span>
                             <span class="text-xs bg-red-200 px-2 py-1 rounded-full text-red-800">必做</span>
                         </div>
                         <div class="p-4 space-y-4 text-sm">
@@ -174,7 +191,6 @@
                                 <h4 class="font-bold text-orange-500 mb-2 border-b border-orange-100 pb-1">⚠️ Level 2: 3月初 (1個月前)</h4>
                                 <ul class="space-y-2 text-xs text-gray-600">
                                     <li><span class="font-bold text-slate-800">🍢 燒鳥 Torine:</span> 3月9日 (請酒店幫手打電話)</li>
-                                    <li><span class="font-bold text-slate-800">🚂 高千穗小火車:</span> 3月11日 (00:00 日本時間開搶)</li>
                                     <li><span class="font-bold text-slate-800">🍲 華味鳥 (天神):</span> 3月12日 (官網訂 Table Seat)</li>
                                     <li><span class="font-bold text-slate-800">🥩 佐賀牛 季樂:</span> 3月13日 (TableCheck)</li>
                                 </ul>
@@ -191,7 +207,7 @@
                     </div>
 
                     <div class="bg-white rounded-2xl p-4 soft-shadow">
-                        <h3 class="font-bold text-gray-600 mb-3"><i class="fa-solid fa-clipboard-check mr-2"></i>出發前 Checklist (V28)</h3>
+                        <h3 class="font-bold text-gray-600 mb-3"><i class="fa-solid fa-clipboard-check mr-2"></i>出發前 Checklist</h3>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 護照 (4本) 📕</div>
                             <div class="flex items-center gap-2"><input type="checkbox" class="accent-onsen-600"> 國際車牌 (爸爸+姑丈) 🪪</div>
@@ -390,10 +406,21 @@
                         { name: 'Hotel JAL City Fukuoka Tenjin', dates: '4/12 - 4/14', phone: '092-712-7575' }
                     ],
 
+                    diningList: [
+                        { date: '4/9', time: '19:30', name: '燒鳥 鳥ネ (Torine)', addr: '別府市北浜1-10-12', tel: '0977-21-1666', note: '電話預約' },
+                        { date: '4/10', time: '10:45', name: '地獄蒸工房 鉄輪', addr: '別府市鉄輪559-1', tel: '0977-66-3775', note: '11點前排隊' },
+                        { date: '4/11', time: '13:30', name: '紅牛丼 ごとう屋 (Gotoya)', addr: '阿蘇市一の宮町宮地3054', tel: '0967-22-0266', note: '免費泊車' },
+                        { date: '4/11', time: '19:00', name: '勝烈亭 豬排', addr: '熊本市中央区新市街8-18', tel: '096-322-8771', note: '泊辛島公園地下' },
+                        { date: '4/12', time: '12:30', name: '柳川御花 (對月館)', addr: '柳川市新外町1', tel: '0944-73-2189', note: '蒸籠鰻魚飯' },
+                        { date: '4/12', time: '19:30', name: '博多華味鳥 (天神店)', addr: '福岡市中央区天神1-15-6', tel: '092-733-6050', note: '官網訂座' },
+                        { date: '4/13', time: '12:00', name: '佐賀牛 季樂 (博多店)', addr: '福岡市博多区中洲5-2-1', tel: '092-737-2122', note: 'TableCheck訂座' },
+                        { date: '4/13', time: '18:30', name: '一蘭 (天神西通り店)', addr: '福岡市中央区大名2-1-57', tel: '092-713-6631', note: '長方形碗' }
+                    ],
+
                     itineraryData: [
                         // Day 1: 4/9 福岡 -> 別府
                         [
-                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 到1F櫃檯辦手續\n2. 上3F門口搭接駁車\n3. 取車 Noah/Alphard', transportType: 'car', location: '福岡機場國際線' },
+                            { id: 1, time: '15:30', title: '抵達福岡機場 (CX588)', category: 'flight', desc: '1. 到1F櫃檯辦手續\n2. 上3F門口搭接駁車\n3. 取車 Noah/Alphard\n4. 姑丈拍片驗車', transportType: 'car', location: '福岡機場國際線' },
                             { id: 2, time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸開 ACC 輕鬆揸\n行程: 144km (約 1小時55分)', transportType: 'car', travelTime: '取車 (1.5hr)' },
                             { id: 3, time: '19:30', title: '晚餐: 燒鳥 Torine', category: 'food', desc: 'Tel: 0977-21-1666\n叫串燒拼盤 (少內臟)', parking: '泊對面/隔籬 Coin Parking', dadAction: '車駛到門口。爸爸媽媽落車入去坐。姑丈去泊車。', transportType: 'car', location: '焼き鳥 鳥ネ', travelTime: '144km (約2小時)' },
                             { id: 4, time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 0977-21-5489', parking: '酒店 Tower Parking (或特約場)', dadAction: '門口落客位好闊，放低行李。全館塌塌米，入大堂要除鞋。', transportType: 'car', location: '御宿 野乃別府', travelTime: '0.4km (2分鐘)' }
@@ -418,7 +445,7 @@
                         [
                             { id: 41, time: '12:30', title: '午餐: 柳川御花 - 對月館', category: 'food', desc: 'Tel: 0944-73-2189\n蒸籠鰻魚飯 (不坐船)', parking: '御花有專用免費停車場', dadAction: '停車場在正門對面，全程平路。', transportType: 'car', location: '柳川藩主立花邸 御花', travelTime: '61.3km (1小時20分)' },
                             { id: 42, time: '15:30', title: '太宰府天滿宮', category: 'sightseeing', desc: 'Mapcode: 55 364 013*77', parking: '大宰府駐車センター (位多好泊)', dadAction: '參道好長。爸爸行到第一間 Starbucks 就入去坐低飲野。', transportType: 'car', location: '太宰府天滿宮', travelTime: '63.5km (1小時15分)' },
-                            { id: 43, time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575\n就在赤坂站出口旁', dadAction: '【泊車選項】\nA. 酒店場 (¥2000/26位/窄) ❌\nB. 紙与大名 (¥100/60min) 👍\nC. 安国 (近) 👌\nD. Times (後備)', parking: '1. 駛入酒店正門彎位落客\n2. 姑丈去泊車 (推薦 Option B)', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', travelTime: '22.1km (40分鐘)' },
+                            { id: 43, time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575\n就在赤坂站出口旁', dadAction: '【重點】酒店正門有「落客彎位」。一定要駛入去放低爸爸同行李。\n\n【推薦泊車】紙与 (Kamiyo) 大名駐車場 (Tel: 092-722-6066)\n位多又平，行返酒店5分鐘。', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', travelTime: '22.1km (40分鐘)' },
                             { id: 44, time: '19:30', title: '晚餐: 博多華味鳥 天神店', category: 'food', desc: 'Tel: 092-733-6050\n水炊雞', parking: 'Times 福岡天神 (13 318 402*15)', dadAction: '車先駛到餐廳附近巷口放低爸爸。湯高鈉飲一碗就好。', transportType: 'car', location: '博多華味鳥 天神店', travelTime: '1.2km (10分鐘)' },
                             { id: 45, time: '21:30', title: '回酒店休息', category: 'hotel', desc: 'Hotel JAL City', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', travelTime: '1.2km (10分鐘)' }
                         ],
