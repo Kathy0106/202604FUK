@@ -60,7 +60,7 @@
             
             <div class="absolute bottom-10 left-6 text-white text-shadow drop-shadow-md">
                 <h1 class="text-2xl font-bold tracking-widest">2026 九州自駕</h1>
-                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>四大長老 V35</p>
+                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>四大長老自駕遊</p>
             </div>
         </div>
 
@@ -150,7 +150,7 @@
                     
                     <div class="bg-red-50 rounded-2xl p-4 border border-red-100 text-red-800 shadow-sm">
                         <div class="font-bold mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2"></i>核心戰術</div>
-                        <p class="text-sm font-bold">門口落客 🚙 ➔ 長輩坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
+                        <p class="text-sm font-bold">門口落客 🚙 ➔ 坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
                         <div class="mt-2 text-xs opacity-90 border-t border-red-200 pt-2">
                             <p><strong>車手：</strong>爸爸 & 姑丈 (輪流揸)</p>
                             <p><strong>媽媽SOP：</strong>每日 07:00 酒店房食香蕉/蛋糕墊底！</p>
@@ -195,11 +195,11 @@
                             </div>
                         </div>
                         <div class="bg-gray-50 p-4 border-t border-gray-100">
-                            <h4 class="font-bold text-xs text-gray-500 mb-2"><i class="fa-solid fa-camera mr-1"></i>Shuttle Taxi 教學圖 (5張)</h4>
+                            <h4 class="font-bold text-xs text-gray-500 mb-2"><i class="fa-solid fa-camera mr-1"></i>Shuttle Taxi 教學圖 (點擊放大)</h4>
                             <div class="grid grid-cols-2 gap-2">
-                                <img v-for="i in 6" :key="i" :src="`./shuttle_${i}.jpg`" class="w-full rounded-lg shadow-sm aspect-video object-cover bg-gray-200" onerror="this.style.display='none'">
+                                <img v-for="i in 6" :key="i" :src="`./shuttle_${i}.jpg`" @click="openImage(`./shuttle_${i}.jpg`)" class="w-full rounded-lg shadow-sm aspect-video object-cover bg-gray-200 cursor-zoom-in hover:opacity-90 transition-opacity" onerror="this.style.display='none'">
                             </div>
-                             <div class="text-[10px] text-gray-400 text-center mt-2">請將相片命名為 shuttle_1.jpg 至 shuttle_5.jpg</div>
+                             <div class="text-[10px] text-gray-400 text-center mt-2">shuttle_1.jpg - shuttle_5.jpg</div>
                         </div>
                     </div>
 
@@ -225,8 +225,8 @@
                             </div>
                         </div>
                         <div class="bg-gray-50 p-4 border-t border-gray-100">
-                            <h4 class="font-bold text-xs text-gray-500 mb-2"><i class="fa-solid fa-camera mr-1"></i>餐廳 Menu</h4>
-                            <img src="./Menu.jpg" class="w-full rounded-lg shadow-sm bg-gray-200" onerror="this.style.display='none'; this.parentElement.innerHTML+='<div class=\'text-xs text-gray-400 text-center\'>請放入 Menu.jpg</div>'">
+                            <h4 class="font-bold text-xs text-gray-500 mb-2"><i class="fa-solid fa-camera mr-1"></i>餐廳 Menu (點擊放大)</h4>
+                            <img src="./Menu.jpg" @click="openImage('./Menu.jpg')" class="w-full rounded-lg shadow-sm bg-gray-200 cursor-zoom-in hover:opacity-90 transition-opacity" onerror="this.style.display='none'; this.parentElement.innerHTML+='<div class=\'text-xs text-gray-400 text-center\'>請放入 Menu.jpg</div>'">
                         </div>
                     </div>
 
@@ -443,6 +443,12 @@
                 <button @click="confirmAdd" class="w-full bg-onsen-600 text-white font-bold py-4 rounded-xl mt-6 shadow-lg hover:bg-onsen-500 transition-all">確認新增</button>
             </div>
         </div>
+
+        <div v-if="showImageModal" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4" @click="showImageModal = false">
+            <img :src="currentImageSrc" class="max-w-full max-h-full rounded-lg shadow-2xl object-contain transition-transform duration-300 scale-100" @click.stop>
+            <button class="absolute top-4 right-4 text-white text-3xl opacity-80 hover:opacity-100"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
     </div>
 
     <script>
@@ -454,6 +460,8 @@
                     currentTab: 'itinerary',
                     selectedDayIndex: 0,
                     showModal: false,
+                    showImageModal: false,
+                    currentImageSrc: '',
                     exchangeRate: 0.053,
                     calcJpy: '',
                     calcHkd: '',
@@ -504,7 +512,7 @@
                         // Day 3: 4/11 黑川 -> 高千穗 -> 熊本
                         [
                             { id: 305, time: '08:30', title: '早餐: 旅館和式朝食', category: 'food', desc: '旅館內享用', transportType: 'walk', location: '黒川温泉 深山山荘' },
-                            { id: 31, time: '11:00', title: '高千穗峽 (真名井之瀧)', category: 'sightseeing', desc: 'Tel: 0982-72-3216\n全程坐定定睇風景', parking: '1. 【優先】P1 御塩井 (330 741 028*25) -> 落車即到，唔洗搭車！\n2. 【後備】P3 大橋 (330 711 700*55) -> 需轉 Shuttle Taxi (200円)', dadAction: '如泊 P3: 輪椅摺埋放車尾，扶爸爸上 Shuttle Taxi。', transportType: 'car', location: '高千穗天照鐵道', travelTime: '65.4km (1小時20分)' },
+                            { id: 31, time: '11:00', title: '高千穗峽 (真名井之瀧)', category: 'sightseeing', desc: 'Tel: 0982-72-3216\n全程坐定定睇風景', parking: '1. 首選 P1 御塩井 (330 741 028*25) 近\n2. 次選 P3 大橋 (330 711 700*55) 轉車', dadAction: '1. 泊 P3 車場\n2. 轉 Shuttle Taxi (200円) 落峽谷\n3. 推輪椅去觀景台影相', transportType: 'car', location: '高千穗天照鐵道', travelTime: '65.4km (1小時20分)' },
                             { id: 32, time: '13:30', title: '午餐: 紅牛丼 (Gotoya)', category: 'food', desc: 'Tel: 0967-22-0266\n阿蘇神社門前町', parking: '阿蘇神社 第1駐車場 (免費)', dadAction: 'Plan B: 爸爸去阿蘇神社參拜/休息，姑姐排隊。', transportType: 'car', location: 'Gotoya Aso', travelTime: '50km (1小時)' },
                             { id: 33, time: '14:45', title: '甜品: ASO MILK FACTORY', category: 'food', desc: 'Tel: 0967-23-2110\n阿蘇牛奶工廠', parking: '門口有超大免費場', dadAction: '入室內坐低。姑姐買雪糕俾爸爸食。去埋洗手間先上車。', transportType: 'car', location: 'ASO MILK FACTORY', travelTime: '6.4km (11分鐘)' },
                             { id: 34, time: '19:00', title: '晚餐: 勝烈亭 豬排', category: 'food', desc: 'Tel: 096-322-8771\n新市街本店', parking: '泊辛島公園地下停車場 (096-322-0024)', dadAction: '泊好車搭電梯上地面。地面行去餐廳係平路。', transportType: 'walk', location: '勝烈亭 新市街本店', travelTime: '45.8km (1小時30分)' },
@@ -587,6 +595,7 @@
                     else this.calcJpy = (this.calcHkd / this.exchangeRate).toFixed(0);
                 },
                 openMap(loc) { if(loc) window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc)}`, '_blank'); },
+                openImage(src) { this.currentImageSrc = src; this.showImageModal = true; },
                 tabClass(tab) { return this.currentTab === tab ? 'bg-onsen-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transform scale-110' : 'bg-white/90 text-onsen-600 w-10 h-10 rounded-full shadow flex items-center justify-center'; },
                 getCategoryIcon(cat) { const map = { food: 'fa-utensils', transport: 'fa-car', shopping: 'fa-bag-shopping', ticket: 'fa-ticket', hotel: 'fa-bed' }; return `fa-solid ${map[cat] || 'fa-circle'}`; },
                 getTransportIcon(type) { const map = { walk: 'fa-person-walking', train: 'fa-train', car: 'fa-car', bus: 'fa-bus' }; return `fa-solid ${map[type] || 'fa-arrow-right'}`; },
