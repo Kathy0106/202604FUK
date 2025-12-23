@@ -60,7 +60,7 @@
             
             <div class="absolute bottom-10 left-6 text-white text-shadow drop-shadow-md">
                 <h1 class="text-2xl font-bold tracking-widest">2026 九州自駕</h1>
-                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>四大長老 V34</p>
+                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>四大長老 V35</p>
             </div>
         </div>
 
@@ -159,18 +159,84 @@
                     
                     <div class="bg-blue-50 rounded-2xl p-4 border border-blue-200 text-center">
                         <a href="https://docs.google.com/document/d/1-9dK_8o7HFytaM7hXTRCqiuSNXSW5wifVBBlOKS7PQQ/edit?usp=drivesdk" target="_blank" class="block w-full bg-blue-500 text-white font-bold py-3 rounded-xl shadow-md hover:bg-blue-600 transition-colors">
-                            <i class="fa-solid fa-file-lines mr-2"></i> 查看 Google Doc 完整行程 (V34)
+                            <i class="fa-solid fa-file-lines mr-2"></i> 查看 Google Doc 完整行程 (V35)
                         </a>
                         <p class="text-xs text-blue-400 mt-2">給家人閱讀的詳細版</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-l-4 border-orange-400">
-                        <div class="bg-orange-50 p-3 text-orange-700 font-bold flex justify-between items-center">
-                            <span><i class="fa-solid fa-utensils mr-2"></i>餐廳情報總覽</span>
+                    <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-l-4 border-green-600">
+                        <div class="bg-green-50 p-3 text-green-800 font-bold flex justify-between items-center">
+                            <span><i class="fa-solid fa-mountain-sun mr-2"></i>高千穗峽 泊車攻略</span>
+                        </div>
+                        <div class="p-4 text-sm space-y-3">
+                            <div class="flex gap-3">
+                                <div class="bg-green-100 text-green-700 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs">1</div>
+                                <div>
+                                    <strong class="block text-slate-700">首選：P1 御塩井 (Oshioi)</strong>
+                                    <span class="text-xs text-gray-500">Mapcode: 330 741 028*25</span>
+                                    <p class="text-xs mt-1">最接近峽谷，如果好彩有位，落車就係。但通常 10:00 後已滿。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="bg-green-100 text-green-700 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs">2</div>
+                                <div>
+                                    <strong class="block text-slate-700">次選：P3 大橋駐車場</strong>
+                                    <span class="text-xs text-gray-500">Mapcode: 330 711 700*55</span>
+                                    <p class="text-xs mt-1">車位多。泊好後搭 <strong>Shuttle Taxi (乗合タクシー)</strong> 落峽谷。</p>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-2 rounded-lg text-xs border border-green-200">
+                                <strong>🚐 Shuttle Taxi 重點：</strong>
+                                <ul class="list-disc list-inside mt-1 ml-1 text-green-800">
+                                    <li>費用：200円/位</li>
+                                    <li>輪椅：摺埋放車尾，扶爸爸上車</li>
+                                    <li>落車點：水族館旁 (即係峽谷底)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 border-t border-gray-100">
+                            <h4 class="font-bold text-xs text-gray-500 mb-2"><i class="fa-solid fa-camera mr-1"></i>Shuttle Taxi 教學圖 (6張)</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <img v-for="i in 6" :key="i" :src="`./shuttle_${i}.jpg`" class="w-full rounded-lg shadow-sm aspect-video object-cover bg-gray-200" onerror="this.style.display='none'">
+                            </div>
+                             <div class="text-[10px] text-gray-400 text-center mt-2">請將相片命名為 shuttle_1.jpg 至 shuttle_6.jpg</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-l-4 border-orange-500">
+                        <div class="bg-orange-50 p-3 text-orange-800 font-bold flex justify-between items-center">
+                            <span><i class="fa-solid fa-utensils mr-2"></i>鐵輪地獄蒸 泊車秘訣</span>
+                        </div>
+                        <div class="p-4 text-sm space-y-3">
+                            <div class="flex gap-3">
+                                <div class="bg-orange-100 text-orange-700 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs">1</div>
+                                <div>
+                                    <strong class="block text-slate-700">先落客：地獄蒸工房 鉄輪</strong>
+                                    <p class="text-xs mt-1">餐廳門口路窄，但可暫停。爸爸先落車入去霸位，姑丈再去泊車。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="bg-orange-100 text-orange-700 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs">2</div>
+                                <div>
+                                    <strong class="block text-slate-700">去泊：鉄輪温泉地区駐車場</strong>
+                                    <span class="text-xs text-gray-500">Mapcode: 46 521 268*52</span>
+                                    <p class="text-xs mt-1">泊好行 3-5 分鐘落斜返餐廳。如果管理員問，指住餐廳話食飯就得。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 border-t border-gray-100">
+                            <h4 class="font-bold text-xs text-gray-500 mb-2"><i class="fa-solid fa-camera mr-1"></i>餐廳 Menu</h4>
+                            <img src="./Menu.jpg" class="w-full rounded-lg shadow-sm bg-gray-200" onerror="this.style.display='none'; this.parentElement.innerHTML+='<div class=\'text-xs text-gray-400 text-center\'>請放入 Menu.jpg</div>'">
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-0 soft-shadow overflow-hidden border-l-4 border-red-400">
+                        <div class="bg-red-50 p-3 text-red-700 font-bold flex justify-between items-center">
+                            <span><i class="fa-solid fa-list-check mr-2"></i>餐廳情報總覽</span>
                         </div>
                         <div class="p-4 space-y-4">
                             <div v-for="res in diningList" :key="res.name" class="flex gap-3 text-sm border-b border-gray-100 pb-2 last:border-0">
-                                <div class="font-bold text-orange-600 w-12 flex-shrink-0 text-center leading-tight">{{ res.date }}<br><span class="text-xs text-gray-400">{{ res.time }}</span></div>
+                                <div class="font-bold text-red-600 w-12 flex-shrink-0 text-center leading-tight">{{ res.date }}<br><span class="text-xs text-gray-400">{{ res.time }}</span></div>
                                 <div>
                                     <div class="font-bold text-slate-800">{{ res.name }}</div>
                                     <div class="text-xs text-gray-500 mt-1 flex items-center"><i class="fa-solid fa-location-dot mr-1"></i>{{ res.addr }}</div>
