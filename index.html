@@ -60,7 +60,7 @@
             
             <div class="absolute bottom-10 left-6 text-white text-shadow drop-shadow-md">
                 <h1 class="text-2xl font-bold tracking-widest">2026 九州自駕</h1>
-                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>四大長老 V33</p>
+                <p class="text-sm opacity-90"><i class="fa-solid fa-car mr-1"></i>四大長老 V33.2</p>
             </div>
         </div>
 
@@ -118,7 +118,7 @@
                                     
                                     <div v-if="item.parking" class="mt-2 p-2 bg-blue-50 rounded-lg text-xs text-blue-700 border border-blue-100 flex items-start gap-2">
                                         <i class="fa-solid fa-square-parking mt-0.5 flex-shrink-0"></i>
-                                        <span class="whitespace-pre-line">{{ item.parking }}</span>
+                                        <span class="whitespace-pre-line leading-relaxed">{{ item.parking }}</span>
                                     </div>
 
                                     <div v-if="item.dadAction" class="mt-2 p-3 bg-red-50 rounded-xl text-xs text-red-600 border border-red-100 flex items-start gap-2 shadow-sm">
@@ -150,7 +150,7 @@
                     
                     <div class="bg-red-50 rounded-2xl p-4 border border-red-100 text-red-800 shadow-sm">
                         <div class="font-bold mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2"></i>核心戰術</div>
-                        <p class="text-sm font-bold">門口落客 🚙 ➔ 長輩坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
+                        <p class="text-sm font-bold">門口落客 🚙 ➔ 坐低休息 ☕ ➔ 姑丈去泊車 🅿️</p>
                         <div class="mt-2 text-xs opacity-90 border-t border-red-200 pt-2">
                             <p><strong>車手：</strong>爸爸 & 姑丈 (輪流揸)</p>
                             <p><strong>媽媽SOP：</strong>每日 07:00 酒店房食香蕉/蛋糕墊底！</p>
@@ -159,7 +159,7 @@
                     
                     <div class="bg-blue-50 rounded-2xl p-4 border border-blue-200 text-center">
                         <a href="https://docs.google.com/document/d/1-9dK_8o7HFytaM7hXTRCqiuSNXSW5wifVBBlOKS7PQQ/edit?usp=drivesdk" target="_blank" class="block w-full bg-blue-500 text-white font-bold py-3 rounded-xl shadow-md hover:bg-blue-600 transition-colors">
-                            <i class="fa-solid fa-file-lines mr-2"></i> 查看 Google Doc 完整行程 (V32)
+                            <i class="fa-solid fa-file-lines mr-2"></i> 查看 Google Doc 完整行程 (V33)
                         </a>
                         <p class="text-xs text-blue-400 mt-2">給家人閱讀的詳細版</p>
                     </div>
@@ -486,14 +486,14 @@
                         [
                             { id: 21, time: '08:00', title: '早餐: 酒店享用早餐', category: 'food', desc: 'Hotel Breakfast 🥐', parking: '就在酒店內', dadAction: '不用外出', transportType: 'walk', location: '御宿 野乃別府' },
                             { id: 22, time: '10:00', title: '海地獄', category: 'sightseeing', desc: 'Tel: 0977-66-0121\n睇藍色溫泉池', parking: '門口有超大免費停車場', dadAction: '售票處門口落客，平路。', transportType: 'car', location: '海地獄', travelTime: '2.8km (7分鐘)' },
-                            { id: 23, time: '10:45', title: '午餐: 地獄蒸工房 鐵輪', category: 'food', desc: 'Tel: 0977-66-3775\n自己蒸野食', parking: '導航去「鉄輪温泉地区駐車場」(46 521 268*52)', dadAction: '爸爸入去搵位坐。姑丈/姑姐去買食券同攞食材。', transportType: 'walk', location: '地獄蒸し工房 鉄輪', travelTime: '0.9km (5分鐘)' },
+                            { id: 23, time: '10:45', title: '午餐: 地獄蒸工房 鐵輪', category: 'food', desc: 'Tel: 0977-66-3775\n自己蒸野食', parking: '1. 先到店門落客 (方便爸爸)\n2. 泊: 鉄輪温泉地区駐車場 (46 521 268*52)', dadAction: '爸爸入去搵位坐。姑丈/姑姐去買食券同攞食材。', transportType: 'walk', location: '地獄蒸し工房 鉄輪', travelTime: '0.9km (5分鐘)' },
                             { id: 24, time: '13:00', title: '由布院 金鱗湖', category: 'sightseeing', desc: '導航: 天祖神社 (269 359 555*55)', parking: '一定要泊呢個場!', dadAction: '落車行 10 步就係湖邊。\n🐶 姑姐任務: 行去 Snoopy 茶屋掃貨，爸爸在湖邊/Cafe等。', transportType: 'car', location: '金鱗湖', travelTime: '20.6km (35分鐘)' },
                             { id: 25, time: '16:30', title: 'Check-in 深山山莊', category: 'hotel', desc: 'Tel: 0967-44-1101 / 0967-44-0336\n地址: 熊本県阿蘇郡南小国町満願寺6393', parking: '直接駛入 Lobby 門口', dadAction: '1. 車駛到 Lobby 門口\n2. 同職員講 "Golf Cart Please"\n3. 坐車送爸爸去房', transportType: 'car', location: '黒川温泉 深山山荘', travelTime: '51.6km (1小時10分)' }
                         ],
                         // Day 3: 4/11 黑川 -> 高千穗 -> 熊本
                         [
                             { id: 305, time: '08:30', title: '早餐: 旅館和式朝食', category: 'food', desc: '旅館內享用', transportType: 'walk', location: '黒川温泉 深山山荘' },
-                            { id: 31, time: '11:00', title: '高千穗峽 (真名井之瀧)', category: 'sightseeing', desc: 'Tel: 0982-72-3216\n全程坐定定睇風景', parking: '第3大橋駐車場 (P3) (330 711 700*55)', dadAction: '1. 泊 P3 車場\n2. 轉 Shuttle Taxi (200円) 落峽谷\n3. 推輪椅去觀景台影相', transportType: 'car', location: '高千穗天照鐵道', travelTime: '65.4km (1小時20分)' },
+                            { id: 31, time: '11:00', title: '高千穗峽 (真名井之瀧)', category: 'sightseeing', desc: 'Tel: 0982-72-3216\n全程坐定定睇風景', parking: '1. 首選 P1 御塩井 (330 741 028*25) 近\n2. 次選 P3 大橋 (330 711 700*55) 轉車', dadAction: '1. 泊 P3 車場\n2. 轉 Shuttle Taxi (200円) 落峽谷\n3. 推輪椅去觀景台影相', transportType: 'car', location: '高千穗天照鐵道', travelTime: '65.4km (1小時20分)' },
                             { id: 32, time: '13:30', title: '午餐: 紅牛丼 (Gotoya)', category: 'food', desc: 'Tel: 0967-22-0266\n阿蘇神社門前町', parking: '阿蘇神社 第1駐車場 (免費)', dadAction: 'Plan B: 爸爸去阿蘇神社參拜/休息，姑姐排隊。', transportType: 'car', location: 'Gotoya Aso', travelTime: '50km (1小時)' },
                             { id: 33, time: '14:45', title: '甜品: ASO MILK FACTORY', category: 'food', desc: 'Tel: 0967-23-2110\n阿蘇牛奶工廠', parking: '門口有超大免費場', dadAction: '入室內坐低。姑姐買雪糕俾爸爸食。去埋洗手間先上車。', transportType: 'car', location: 'ASO MILK FACTORY', travelTime: '6.4km (11分鐘)' },
                             { id: 34, time: '19:00', title: '晚餐: 勝烈亭 豬排', category: 'food', desc: 'Tel: 096-322-8771\n新市街本店', parking: '泊辛島公園地下停車場 (096-322-0024)', dadAction: '泊好車搭電梯上地面。地面行去餐廳係平路。', transportType: 'walk', location: '勝烈亭 新市街本店', travelTime: '45.8km (1小時30分)' },
