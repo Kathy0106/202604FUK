@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 九洲四大長老自駕 202601</title>
+    <title>🌸2026 九洲四大長老自駕🌸</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -109,7 +109,7 @@
                 </div>
                 
                 <div class="absolute bottom-8 left-6 text-white text-shadow pr-40">
-                    <h1 class="text-xl font-bold tracking-widest leading-tight mb-1 drop-shadow-md">2026 九洲四大長老自駕 ver 202601</h1>
+                    <h1 class="text-xl font-bold tracking-widest leading-tight mb-1 drop-shadow-md">2026 九州自駕</h1>
                     <p class="text-[10px] opacity-90 font-mono"><i class="fa-solid fa-wheelchair mr-1"></i>四大長老 • 終極行動指南</p>
                 </div>
             </div>
@@ -186,9 +186,11 @@
                                             </div>
 
                                             <div v-if="item.parking && !item.mapcode" class="mt-2 bg-blue-50 p-2 rounded-xl border border-dashed border-blue-200">
-                                                <div class="text-[10px] text-[#1565C0] font-bold flex items-start">
-                                                    <i class="fa-solid fa-square-parking mr-1.5 mt-0.5 text-base"></i>
-                                                    <span class="leading-relaxed whitespace-pre-line" v-html="formatText(item.parking)"></span>
+                                                <div class="text-[10px] text-[#1565C0] font-bold flex flex-col">
+                                                    <div class="flex items-start mb-1">
+                                                        <i class="fa-solid fa-square-parking mr-1.5 mt-0.5 text-base"></i>
+                                                        <span class="leading-relaxed whitespace-pre-line" v-html="formatText(item.parking)"></span>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -505,8 +507,8 @@
                             { time: '13:00', title: '午餐: 紅牛丼 (Gotoya)', category: 'food', desc: 'Tel: 0967-22-0266', transportType: 'car', travelTime: '35km (45分鐘)', location: 'Gotoya Aso', dadAction: '行商店街平路入去。', parking: '阿蘇神社 第1駐車場 (免費)', phone: '0967-22-0266', mapcode: '256 696 414*42' },
                             { time: '14:45', title: '草千里 (看火山)', category: 'sightseeing', desc: 'Kusasenri', transportType: 'car', travelTime: '15km (25分鐘)', location: '草千里', dadAction: '只在停車場展望台看火山 (不用行上山)。', parking: '草千里停車場', mapcode: '256 456 835*34' },
                             { time: '16:00', title: '出發往熊本市區', category: 'transport', desc: '下山路段', transportType: 'car', travelTime: '45km (1小時10分)' },
-                            { time: '19:00', title: '晚餐: 勝烈亭 豬排', category: 'food', desc: 'Tel: 096-322-8771', transportType: 'walk', location: '勝烈亭 新市街本店', dadAction: '泊辛島公園地下。爸爸門口坐，姑姐排隊。\n⚠️ <span class="highlight-red">醬汁高鈉，少淋汁。</span>', parking: '辛島公園地下停車場', phone: '096-322-8771' },
-                            { time: '21:00', title: 'Check-in 御宿野乃熊本', category: 'hotel', desc: 'Tel: 096-311-5489', transportType: 'car', location: '御宿 野乃熊本', dadAction: '🧊 <span class="highlight-red">必做: 冰敷腳部 (自販機層有製冰機)。</span>', parking: '酒店後門立體場 / 辛島公園 (Mapcode: 29 459 296*35)', phone: '096-311-5489', mapcode: '29 460 380*82' }
+                            { time: '17:30', title: 'Check-in 御宿野乃熊本', category: 'hotel', desc: 'Tel: 096-311-5489', transportType: 'car', location: '御宿 野乃熊本', dadAction: '🧊 <span class="highlight-red">必做: 冰敷腳部 (自販機層有製冰機)。</span>', parking: '酒店後門立體場 / 辛島公園 (Mapcode: 29 459 296*35)', phone: '096-311-5489', mapcode: '29 460 380*82' },
+                            { time: '19:00', title: '晚餐: 勝烈亭 豬排', category: 'food', desc: 'Tel: 096-322-8771', transportType: 'walk', location: '勝烈亭 新市街本店', dadAction: '泊辛島公園地下。爸爸門口坐，姑姐排隊。\n⚠️ <span class="highlight-red">醬汁高鈉，少淋汁。</span>', parking: '辛島公園地下停車場', phone: '096-322-8771' }
                         ],
                         // Day 4
                         [
@@ -514,9 +516,9 @@
                             { time: '12:30', title: '午餐: 柳川御花', category: 'food', desc: 'Tel: 0944-73-2189\n對月館 (不坐船)', transportType: 'car', location: '柳川藩主立花邸 御花', dadAction: '停車場對面直入平路。爸爸只食鰻魚肉。', parking: '御花專用免費停車場', phone: '0944-73-2189', mapcode: '69 875 572*47' },
                             { time: '14:00', title: '出發往福岡', category: 'transport', desc: '高速公路', transportType: 'car', travelTime: '60km (1小時)' },
                             { time: '15:30', title: '大濠公園 & 美術館', category: 'sightseeing', desc: '導航: 092-714-6051', transportType: 'car', location: 'Fukuoka Art Museum', dadAction: '泊美術館場。推去 Starbucks。路面極好推。', parking: '福岡市美術館停車場', phone: '092-714-6051', mapcode: '13 315 634*55' },
-                            { time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', dadAction: '車入酒店彎位落客。姑丈去泊車。', parking: '首選: 紙与大名停車場 (推薦)\n次選: 安国駐車場', phone: '092-712-7575', mapcode: '13 317 743*44' },
+                            { time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', dadAction: '車入酒店彎位落客。姑丈去泊車。', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>C. 安国駐車場 (近) 👌<br>D. Times (後備)', phone: '092-712-7575', mapcode: '13 317 743*44' },
                             { time: '19:30', title: '晚餐: 博多華味鳥', category: 'food', desc: 'Tel: 092-733-6050', transportType: 'walk', location: '博多華味鳥 天神店', dadAction: '⚠️ <span class="highlight-red">痛風紅燈: 嚴禁飲湯！</span>', parking: '', phone: '092-733-6050', mapcode: '13 317 653*41' },
-                            { time: '21:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '必泊: 紙与大名停車場 (092-721-4649)\nMapcode: 13 317 486*17', dadAction: '門口落客，姑丈去泊車。' }
+                            { time: '21:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>C. 安国駐車場 (近) 👌<br>D. Times (後備)', dadAction: '門口落客，姑丈去泊車。' }
                         ],
                         // Day 5
                         [
@@ -525,7 +527,7 @@
                             { time: '12:00', title: '午餐: 宮崎牛鉄板焼', category: 'food', desc: '中洲', transportType: 'walk', location: 'Miyazaki Beef Teppanyaki Hakata Miyachiku', dadAction: '就在附近，步行或揸車 2 分鐘。', parking: '對面 Gate\'s 停車場 (092-283-0555)', phone: '092-262-2914', mapcode: '13 318 472*17' },
                             { time: '14:00', title: 'LaLaport 福岡', category: 'shopping', desc: 'Tel: 092-707-9820', transportType: 'car', travelTime: '20分鐘', location: 'LaLaport Fukuoka', dadAction: '泊 South Entrance。入門口搵 Cafe 安置爸爸。', parking: 'South Parking', phone: '092-707-9820', mapcode: '13 162 481*57' },
                             { time: '18:30', title: '晚餐: 一蘭 天神西通り', category: 'food', desc: 'Tel: 092-713-6631', transportType: 'car', travelTime: '20分鐘', location: '一蘭 天神西通り店', dadAction: '姑姐排隊。爸爸在無印良品坐。\n⚠️ <span class="highlight-red">嚴禁飲湯！</span>', parking: '首選: 天神地下街停車場 (南)\n次選: 安國駐車場', phone: '092-713-6631', mapcode: '13 317 683*55' },
-                            { time: '20:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '必泊: 紙与大名停車場 (092-721-4649)\nMapcode: 13 317 486*17', dadAction: '門口落客，姑丈去泊車。\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>' }
+                            { time: '20:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>C. 安国駐車場 (近) 👌<br>D. Times (後備)', dadAction: '門口落客，姑丈去泊車。\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>' }
                         ],
                         // Day 6
                         [
