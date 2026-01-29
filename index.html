@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🌸2026 九州四大長老自駕 🌸 (修復版)</title>
+    <title> 🌸2026 九州四大長老自駕🌸</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -92,6 +92,13 @@
         }
         .overlay-bg.active .modal-content {
             transform: scale(1);
+        }
+        .lightbox-img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 8px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
         }
         
         /* Floating Emergency Button */
@@ -284,13 +291,15 @@
                     </div>
 
                     <div v-if="activeTab === 'info'" class="space-y-5 px-5 pt-4">
-                         <div class="onsen-card overflow-hidden border-2 dashed border-[#90CAF9] cursor-pointer hover:opacity-90" @click="openDoc">
+                        
+                        <div class="onsen-card overflow-hidden border-2 dashed border-[#90CAF9] cursor-pointer hover:opacity-90" @click="openDoc">
                             <div class="p-4 flex items-center justify-center gap-2 bg-[#4285F4] text-white font-bold rounded-xl shadow-md">
                                 <i class="fa-brands fa-google-drive text-lg"></i>
                                 <span class="text-sm">查看完整 Google Doc 行程</span>
                             </div>
                         </div>
-                         <div class="onsen-card overflow-hidden">
+
+                        <div class="onsen-card overflow-hidden">
                             <div class="p-4 text-white font-bold flex justify-between text-sm bg-[#00897B]">
                                 <span><i class="fa-solid fa-plane mr-2"></i>航班資訊 (CX)</span>
                             </div>
@@ -308,9 +317,6 @@
                                         <span>HKG → FUK (CX588)</span>
                                         <span>4/9</span>
                                     </div>
-                                    <a href="https://www.google.com/search?q=CX588+flight+status" target="_blank" class="block w-full text-center py-2 mt-2 rounded-lg border border-dashed border-[#B2DFDB] text-[#00796B] text-xs font-bold hover:bg-[#E0F2F1] transition-colors">
-                                        <i class="fa-solid fa-wifi mr-1"></i> 查看實時狀態
-                                    </a>
                                 </div>
                                 <div class="border-t-2 border-dashed border-[#E0E0E0]"></div>
                                 <div>
@@ -326,9 +332,34 @@
                                         <span>FUK → HKG (CX589)</span>
                                         <span>4/14</span>
                                     </div>
-                                    <a href="https://www.google.com/search?q=CX589+flight+status" target="_blank" class="block w-full text-center py-2 mt-2 rounded-lg border border-dashed border-[#B2DFDB] text-[#00796B] text-xs font-bold hover:bg-[#E0F2F1] transition-colors">
-                                        <i class="fa-solid fa-wifi mr-1"></i> 查看實時狀態
-                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="onsen-card overflow-hidden">
+                            <div class="p-4 font-bold flex justify-between text-sm" style="background-color: #E3F2FD; color: #1565C0;">
+                                <span><i class="fa-solid fa-car mr-2"></i>租車資訊 (Toyota Rent a Car)</span>
+                            </div>
+                            <div class="p-5 space-y-4 text-sm bg-white">
+                                <div class="flex justify-between items-center border-b border-dashed border-[#E0E0E0] pb-2">
+                                    <span class="text-[#90A4AE] text-xs">店舖</span>
+                                    <span class="text-sm font-bold text-[#004D40]">福岡空港國際線店</span>
+                                </div>
+                                <div class="flex gap-2">
+                                    <div class="flex-1 bg-[#F5F5F5] p-2 rounded-lg text-center border border-dashed border-[#E0E0E0]">
+                                        <div class="text-[0.6rem] text-gray-500 mb-0.5">電話</div>
+                                        <div class="font-bold text-[#004D40]">092-621-0100</div>
+                                    </div>
+                                    <div class="flex-1 bg-[#F5F5F5] p-2 rounded-lg text-center border border-dashed border-[#E0E0E0]">
+                                        <div class="text-[0.6rem] text-gray-500 mb-0.5">MapCode</div>
+                                        <div class="font-bold text-[#004D40]">13 293 345*65</div>
+                                    </div>
+                                </div>
+                                <div class="bg-[#FFF3E0] p-3 rounded-xl text-xs text-[#E65100] border border-dashed border-[#FFE0B2]">
+                                    <strong class="block mb-1"><i class="fa-solid fa-circle-info mr-1"></i>取車 SOP:</strong>
+                                    1. 到 1F 租車櫃檯報到 ℹ️<br>
+                                    2. 上 3F 門口搭接駁車 (Shuttle) 🚐<br>
+                                    3. 到店取車、姑丈拍片驗車 📹
                                 </div>
                             </div>
                         </div>
@@ -345,6 +376,73 @@
                                         <span v-if="hotel.phone" class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-phone mr-1"></i>{{ hotel.phone }}</span>
                                     </div>
                                     <div v-if="hotel.mapcode" class="text-xs text-blue-500 font-mono mt-1"><i class="fa-solid fa-location-dot mr-1"></i>{{ hotel.mapcode }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="onsen-card overflow-hidden border-2 dashed border-[#EF9A9A]">
+                             <div class="bg-[#FFEBEE] p-3 text-[#C62828] font-bold flex justify-between items-center">
+                                <span><i class="fa-solid fa-bell mr-2"></i>To-Book 搶訂清單</span>
+                            </div>
+                            <div class="p-4 text-xs space-y-2 bg-white">
+                                <ul class="list-disc pl-4 text-gray-600">
+                                    <li><strong>Day 1 野乃:</strong> 需車位+輪椅清潔</li>
+                                    <li><strong>Day 2 深山:</strong> 洋室 1F + 痛風餐 + Golf Cart</li>
+                                    <li><strong>柳川御花:</strong> 官網預約</li>
+                                    <li><strong>華味鳥 (天神):</strong> 3月12日訂 Table</li>
+                                    <li><strong>宮崎牛:</strong> 4月6日 Tabelog</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="onsen-card overflow-hidden border-l-4 border-[#FFB74D]">
+                            <div class="bg-[#FFF3E0] p-3 text-[#EF6C00] font-bold">
+                                <span><i class="fa-solid fa-utensils mr-2"></i>餐廳情報總覽</span>
+                            </div>
+                            <div class="p-4 space-y-4 bg-white">
+                                <div v-for="res in diningList" :key="res.name" class="flex gap-3 text-sm border-b border-dashed border-[#FFE0B2] pb-3 last:border-0 last:pb-0">
+                                    <div class="font-bold text-[#EF6C00] w-10 flex-shrink-0 text-center leading-tight">
+                                        <span class="block text-xs text-gray-400">{{ res.date }}</span>
+                                        {{ res.time }}
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-[#5D4037]">{{ res.name }}</div>
+                                        <div class="text-xs text-gray-500 mt-1 flex items-start gap-1"><i class="fa-solid fa-location-dot mt-0.5"></i> {{ res.addr }}</div>
+                                        <div class="text-xs text-gray-500 mt-0.5"><i class="fa-solid fa-phone mr-1"></i> {{ res.tel }}</div>
+                                        <div v-if="res.note" class="text-[0.65rem] text-[#EF6C00] mt-1 font-bold bg-[#FFF3E0] px-1.5 py-0.5 rounded inline-block">{{ res.note }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="onsen-card p-4">
+                            <h4 class="font-bold text-[#004D40] text-sm mb-2"><i class="fa-solid fa-image mr-2"></i>地獄蒸 Menu (點擊放大)</h4>
+                            <div class="relative aspect-video rounded-lg overflow-hidden cursor-pointer group shadow-sm border border-[#B2DFDB]" @click="openImage('./Menu.jpg')">
+                                <img src="./Menu.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Menu Preview" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-xs text-gray-400\'>Menu.jpg 未找到</div>'">
+                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="text-white text-xs font-bold bg-black/50 px-2 py-1 rounded"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>放大</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="onsen-card overflow-hidden border-l-4 border-[#26A69A]">
+                            <div class="bg-[#E0F2F1] p-3 text-[#00695C] font-bold">
+                                <span><i class="fa-solid fa-square-parking mr-2"></i>鐵輪地獄蒸 泊車秘訣</span>
+                            </div>
+                            <div class="p-4 text-sm bg-white space-y-3">
+                                <div class="flex gap-3">
+                                    <div class="bg-[#B2DFDB] text-[#004D40] w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs mt-0.5">1</div>
+                                    <div>
+                                        <strong class="block text-[#004D40]">先落客：地獄蒸工房 鉄輪</strong>
+                                        <p class="text-xs text-gray-600">餐廳門口路窄，但可暫停。爸爸先落車入去霸位，姑丈再去泊車。</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="bg-[#B2DFDB] text-[#004D40] w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs mt-0.5">2</div>
+                                    <div>
+                                        <strong class="block text-[#004D40]">去泊：鉄輪温泉地区駐車場</strong>
+                                        <div class="text-xs font-mono font-bold text-[#00796B] bg-[#E0F2F1] px-1 rounded inline-block mt-0.5 mb-0.5">Mapcode: 46 521 268*52</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -544,8 +642,7 @@
 
                     diningList: [
                         { date: '4/9', time: '19:30', name: '燒鳥 鳥ネ (Torine)', addr: '別府市北浜1-10-12', tel: '0977-21-1666', note: '電話預約' },
-                        // ... (Other dining items unchanged)
-                         { date: '4/10', time: '10:45', name: '地獄蒸工房 鉄輪', addr: '別府市鉄輪559-1', tel: '0977-66-3775', note: '11點前排隊' },
+                        { date: '4/10', time: '10:45', name: '地獄蒸工房 鉄輪', addr: '別府市鉄輪559-1', tel: '0977-66-3775', note: '11點前排隊' },
                         { date: '4/11', time: '13:30', name: '紅牛丼 ごとう屋 (Gotoya)', addr: '阿蘇市一の宮町宮地3054', tel: '0967-22-0266', note: '免費泊車' },
                         { date: '4/11', time: '19:00', name: '勝烈亭 豬排', addr: '熊本市中央区新市街8-18', tel: '096-322-8771', note: '泊辛島公園地下' },
                         { date: '4/12', time: '12:30', name: '柳川御花 (對月館)', addr: '柳川市新外町1', tel: '0944-73-2189', note: '蒸籠鰻魚飯 (4/9前預約)' },
@@ -556,8 +653,7 @@
                     ],
 
                     itineraryData: [
-                       // ... (Itinerary Data from V85 - No Changes Needed) ...
-                       // Day 1
+                        // Day 1
                         [
                             { time: '15:30', title: '抵達福岡機場 & 租車', category: 'flight', desc: '1. 到1F櫃檯辦手續\n2. 上3F門口搭接駁車\n3. 取車 Noah/Alphard\n4. 姑丈拍片驗車', transportType: 'car', location: '福岡機場國際線', dadAction: '爸爸去洗手間，媽媽陪同。', parking: '', phone: '092-621-0100' },
                             { time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸開 ACC 輕鬆揸\n提示: 途經基山PA可去廁所', transportType: 'car', travelTime: '145km (1小時50分)', mapcode: '55 364 364*14' },
@@ -648,10 +744,14 @@
             },
             watch: {
                 selectedDayIndex() { this.fetchWeather(); },
-                'settings.fontSize': function(newVal) { document.documentElement.style.fontSize = newVal + 'px'; }
+                // ⚙️ 這裡就是修復後的 Watcher！
+                'settings.fontSize': function(newVal) {
+                    document.documentElement.style.fontSize = newVal + 'px';
+                }
             },
             mounted() {
                 this.fetchWeather();
+                // 啟動時應用預設字體
                 document.documentElement.style.fontSize = this.settings.fontSize + 'px';
             },
             methods: {
