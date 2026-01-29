@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 九洲四大長老自駕 V87</title>
+    <title>2026 九州四大長老自駕 V88</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -31,6 +31,8 @@
             color: var(--text-dark);
             overscroll-behavior-y: none;
             -webkit-tap-highlight-color: transparent;
+            /* 預設字體大小，會被 JS 覆蓋 */
+            font-size: 15px; 
         }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -98,8 +100,8 @@
             position: fixed;
             bottom: 100px; /* Above the tab bar */
             right: 20px;
-            width: 56px;
-            height: 56px;
+            width: 3.5rem;
+            height: 3.5rem;
             border-radius: 50%;
             background-color: #EF5350;
             color: white;
@@ -109,20 +111,20 @@
             box-shadow: 0 4px 15px rgba(239, 83, 80, 0.4);
             z-index: 50;
             transition: transform 0.2s;
-            font-size: 24px;
+            font-size: 1.5rem;
         }
         .fab-btn:active { transform: scale(0.9); }
 
         .take-home-btn {
             background-color: #004D40;
             color: white;
-            padding: 6px 12px;
+            padding: 0.4rem 0.8rem;
             border-radius: 50px;
-            font-size: 12px;
+            font-size: 0.8rem;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 0.4rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             animation: pulse 2s infinite;
         }
@@ -156,7 +158,7 @@
                 
                 <div class="absolute bottom-8 left-6 text-white text-shadow pr-40">
                     <h1 class="text-xl font-bold tracking-widest leading-tight mb-1 drop-shadow-md">2026 九州自駕</h1>
-                    <p class="text-[10px] opacity-90 font-mono"><i class="fa-solid fa-wheelchair mr-1"></i>四大長老 (爸/媽/姑姐/姑丈) 專用</p>
+                    <p class="text-[0.7rem] opacity-90 font-mono"><i class="fa-solid fa-wheelchair mr-1"></i>四大長老 (爸/媽/姑姐/姑丈) 專用</p>
                 </div>
             </div>
 
@@ -191,7 +193,7 @@
                                         <div class="text-xl font-bold text-[#004D40]">{{ weather.temp }}°</div>
                                         <i :class="['fa-solid', weather.icon, 'text-2xl text-[#FFB74D]']"></i>
                                     </div>
-                                    <div class="text-[10px] text-[#4DB6AC]">{{ weather.city_name }}</div>
+                                    <div class="text-[0.65rem] text-[#4DB6AC]">{{ weather.city_name }}</div>
                                 </div>
                             </div>
                             
@@ -202,7 +204,7 @@
                                      :class="selectedDayIndex === index ? 'bg-[#00897B] border-[#00897B] text-white scale-105 shadow-md' : 'bg-white border-[#B2DFDB] text-[#4DB6AC]'">
                                     <span class="text-xs font-bold uppercase mb-0.5">{{ day.weekday }}</span>
                                     <span class="text-3xl font-black">{{ day.date.split('/')[1] }}</span>
-                                    <span class="text-[10px] opacity-80 mt-0.5">Day {{ index + 1 }}</span>
+                                    <span class="text-[0.65rem] opacity-80 mt-0.5">Day {{ index + 1 }}</span>
                                 </div>
                             </div>
 
@@ -216,7 +218,7 @@
                             <div class="absolute left-[26px] top-4 bottom-4 w-0.5 border-l-2 border-dashed border-[#80CBC4] z-0"></div>
 
                             <div v-for="(item, idx) in currentDayItinerary" :key="idx" class="relative pl-12 group">
-                                <div class="absolute left-[9px] top-4 w-9 h-9 rounded-full bg-white border-4 border-[#E0F2F1] flex items-center justify-center z-10 shadow-sm font-bold text-[10px] text-[#00897B]">
+                                <div class="absolute left-[9px] top-4 w-9 h-9 rounded-full bg-white border-4 border-[#E0F2F1] flex items-center justify-center z-10 shadow-sm font-bold text-[0.65rem] text-[#00897B]">
                                     {{ item.time.split(':')[0] }}
                                 </div>
 
@@ -226,28 +228,28 @@
                                         
                                         <div class="flex-1 min-w-0">
                                             <div class="flex justify-between items-start mb-1.5">
-                                                <div class="text-[10px] font-bold uppercase tracking-wider opacity-60 text-[#00695C]">{{ item.time }} • {{ itemCategoryName(item.category) }}</div>
+                                                <div class="text-[0.65rem] font-bold uppercase tracking-wider opacity-60 text-[#00695C]">{{ item.time }} • {{ itemCategoryName(item.category) }}</div>
                                             </div>
                                             <h3 class="text-lg font-bold mb-1.5 leading-tight text-[#004D40]">{{ item.title }}</h3>
                                             
                                             <div class="text-xs text-[#00695C] mb-2 flex items-start gap-1.5 leading-relaxed whitespace-pre-line" v-html="formatText(item.desc)"></div>
 
                                             <div class="mt-2 bg-[#F1F8E9] p-2 rounded-xl border border-dashed border-[#C5E1A5]" v-if="item.dadAction">
-                                                <div class="text-[10px] text-[#33691E] font-bold flex items-start">
+                                                <div class="text-[0.7rem] text-[#33691E] font-bold flex items-start">
                                                     <i class="fa-solid fa-person-cane mr-1.5 mt-0.5 text-base"></i>
                                                     <span class="leading-relaxed" v-html="formatText(item.dadAction)"></span>
                                                 </div>
                                             </div>
 
                                             <div v-if="item.parking && !item.mapcode" class="mt-2 bg-blue-50 p-2 rounded-xl border border-dashed border-blue-200">
-                                                <div class="text-[10px] text-[#1565C0] font-bold flex items-start">
+                                                <div class="text-[0.7rem] text-[#1565C0] font-bold flex items-start">
                                                     <i class="fa-solid fa-square-parking mr-1.5 mt-0.5 text-base"></i>
                                                     <span class="leading-relaxed whitespace-pre-line" v-html="formatText(item.parking)"></span>
                                                 </div>
                                             </div>
 
                                             <div class="flex flex-wrap gap-1.5 mt-2">
-                                                <span v-if="idx < currentDayItinerary.length" class="text-[9px] bg-[#E0F2F1] text-[#00796B] px-2 py-1 rounded-lg font-bold flex items-center gap-1 border border-dashed border-[#B2DFDB]">
+                                                <span v-if="idx < currentDayItinerary.length" class="text-[0.65rem] bg-[#E0F2F1] text-[#00796B] px-2 py-1 rounded-lg font-bold flex items-center gap-1 border border-dashed border-[#B2DFDB]">
                                                     <i :class="getTransportIcon(item.transportType)"></i> {{ item.travelTime || '移動' }}
                                                 </span>
                                             </div>
@@ -256,13 +258,13 @@
                                         <div v-if="item.mapcode || item.phone" class="w-24 flex-shrink-0 flex flex-col gap-2 justify-start mt-1">
                                             
                                             <div v-if="item.mapcode" class="bg-white border-2 border-[#1565C0] rounded-lg p-1.5 text-center shadow-sm" @click.stop>
-                                                <div class="text-[9px] font-bold text-[#1565C0] mb-0.5 uppercase tracking-tighter">MapCode</div>
+                                                <div class="text-[0.6rem] font-bold text-[#1565C0] mb-0.5 uppercase tracking-tighter">MapCode</div>
                                                 <div class="text-xs font-black text-slate-800 break-all leading-tight mb-1">{{ item.mapcode }}</div>
-                                                <div class="bg-[#1565C0] text-white text-[9px] rounded px-1 py-0.5 font-bold cursor-pointer active:scale-95">COPY</div>
+                                                <div class="bg-[#1565C0] text-white text-[0.6rem] rounded px-1 py-0.5 font-bold cursor-pointer active:scale-95">COPY</div>
                                             </div>
 
                                             <div v-if="item.phone" class="bg-white border-2 border-[#00897B] rounded-lg p-1.5 text-center shadow-sm" @click.stop>
-                                                <div class="text-[9px] font-bold text-[#00897B] mb-0.5 uppercase">TEL</div>
+                                                <div class="text-[0.6rem] font-bold text-[#00897B] mb-0.5 uppercase">TEL</div>
                                                 <div class="text-xs font-black text-slate-800 break-all leading-tight">{{ item.phone }}</div>
                                             </div>
 
@@ -271,7 +273,7 @@
                                     </div>
                                     <div v-if="item.parking && item.title.includes('JAL City')" class="mt-3 bg-[#E3F2FD] p-2 rounded-xl border border-dashed border-[#90CAF9]">
                                         <div class="text-xs font-bold text-[#1565C0] mb-1"><i class="fa-solid fa-square-parking mr-1"></i>泊車 4 選 1</div>
-                                        <ul class="text-[10px] space-y-1.5 text-[#0D47A1]">
+                                        <ul class="text-[0.7rem] space-y-1.5 text-[#0D47A1]">
                                             <li class="opacity-60">A. 酒店場 (¥2200/窄) ❌</li>
                                             <li class="font-bold bg-white rounded px-1 py-0.5 border border-[#1565C0] text-[#1565C0]">
                                                 B. 紙与大名 (推薦) 👍 <br>
@@ -308,7 +310,7 @@
                             </div>
                             <div class="p-5 text-sm bg-white space-y-6">
                                 <div>
-                                    <div class="text-[10px] font-bold text-[#4DB6AC] mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-blue-400 mr-1"></span>去程 (HKT)</div>
+                                    <div class="text-[0.65rem] font-bold text-[#4DB6AC] mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-blue-400 mr-1"></span>去程 (HKT)</div>
                                     <div class="flex justify-between items-center mb-2">
                                         <div class="text-2xl font-bold text-[#004D40]">11:00</div>
                                         <div class="flex-1 px-4 flex flex-col items-center">
@@ -326,7 +328,7 @@
                                 </div>
                                 <div class="border-t-2 border-dashed border-[#E0E0E0]"></div>
                                 <div>
-                                    <div class="text-[10px] font-bold text-[#4DB6AC] mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-pink-400 mr-1"></span>回程 (JST)</div>
+                                    <div class="text-[0.65rem] font-bold text-[#4DB6AC] mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-pink-400 mr-1"></span>回程 (JST)</div>
                                     <div class="flex justify-between items-center mb-2">
                                         <div class="text-2xl font-bold text-[#004D40]">16:40</div>
                                         <div class="flex-1 px-4 flex flex-col items-center">
@@ -364,7 +366,7 @@
                         <div class="onsen-card overflow-hidden border-2 dashed border-[#EF9A9A]">
                             <div class="bg-[#FFEBEE] p-3 text-[#C62828] font-bold flex justify-between items-center">
                                 <span><i class="fa-solid fa-bell mr-2"></i>To-Book 搶訂清單</span>
-                                <span class="text-[10px] bg-[#C62828] text-white px-2 py-0.5 rounded-full">必做</span>
+                                <span class="text-[0.65rem] bg-[#C62828] text-white px-2 py-0.5 rounded-full">必做</span>
                             </div>
                             <div class="p-4 text-xs space-y-3 bg-white">
                                 <div>
@@ -400,7 +402,7 @@
                                         <div class="font-bold text-[#5D4037]">{{ res.name }}</div>
                                         <div class="text-xs text-gray-500 mt-1 flex items-start gap-1"><i class="fa-solid fa-location-dot mt-0.5"></i> {{ res.addr }}</div>
                                         <div class="text-xs text-gray-500 mt-0.5"><i class="fa-solid fa-phone mr-1"></i> {{ res.tel }}</div>
-                                        <div v-if="res.note" class="text-[10px] text-[#EF6C00] mt-1 font-bold bg-[#FFF3E0] px-1.5 py-0.5 rounded inline-block">{{ res.note }}</div>
+                                        <div v-if="res.note" class="text-[0.65rem] text-[#EF6C00] mt-1 font-bold bg-[#FFF3E0] px-1.5 py-0.5 rounded inline-block">{{ res.note }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -452,7 +454,7 @@
                                     <input type="number" v-model="calcHkd" @input="convert('hkd')" class="w-full bg-transparent outline-none font-bold text-lg text-[#004D40]" placeholder="0">
                                 </div>
                             </div>
-                            <div class="text-right text-[10px] text-[#4DB6AC]">匯率: {{ exchangeRate }}</div>
+                            <div class="text-right text-[0.65rem] text-[#4DB6AC]">匯率: {{ exchangeRate }}</div>
                         </div>
                     </div>
 
@@ -465,7 +467,7 @@
                                         <input type="checkbox" class="w-5 h-5 rounded border-[#B2DFDB] accent-[#00897B]">
                                         <span class="text-sm font-bold text-[#004D40]">{{ item.name }}</span>
                                     </div>
-                                    <div class="text-[10px] text-gray-500 pl-8 mt-1">{{ item.note }}</div>
+                                    <div class="text-[0.65rem] text-gray-500 pl-8 mt-1">{{ item.note }}</div>
                                     <button @click="removeShoppingItem(idx)" class="absolute top-3 right-3 text-[#B2DFDB] hover:text-[#EF5350]"><i class="fa-solid fa-trash"></i></button>
                                 </div>
                                 <div class="flex gap-2 mt-4">
@@ -480,7 +482,7 @@
                         <div class="onsen-card p-6 mb-4 text-center border-none bg-[#00897B] text-white">
                             <p class="text-xs text-white/80 mb-1">總花費 (日元)</p>
                             <div class="text-4xl font-bold mb-1">¥{{ totalExpenses.toLocaleString() }}</div>
-                             <p class="text-[10px] text-white/60">≈ HK$ {{ (totalExpenses * exchangeRate).toFixed(0) }}</p>
+                             <p class="text-[0.65rem] text-white/60">≈ HK$ {{ (totalExpenses * exchangeRate).toFixed(0) }}</p>
                         </div>
                         <button class="w-full mt-4 py-3 rounded-xl text-white font-bold shadow-md active:scale-95 text-sm bg-[#00897B]">記一筆</button>
                     </div>
@@ -572,11 +574,12 @@
                 </div>
                 <div class="mb-6">
                     <div class="flex justify-between mb-2">
-                        <span class="text-sm font-bold text-[#00695C]">字體大小</span>
+                        <span class="text-sm font-bold text-[#00695C]">字體大小 (長輩用)</span>
                         <span class="text-xs text-[#BDBDBD]">{{ settings.fontSize }}px</span>
                     </div>
-                    <input type="range" min="12" max="24" step="1" v-model="settings.fontSize" class="w-full accent-[#00897B]">
+                    <input type="range" min="14" max="24" step="1" v-model="settings.fontSize" class="w-full accent-[#00897B]">
                 </div>
+                <div class="text-center text-[0.65rem] text-[#BDBDBD] mt-4">V88 Font Fix</div>
             </div>
         </div>
 
@@ -604,7 +607,7 @@
                     weather: { city_name: '別府, 日本', temp: '--', feels_like: '--', icon: 'fa-spinner fa-spin' },
                     apiKey: 'cc2dab2806da14aec6dab2ed8260a1c4',
                     
-                    settings: { fontSize: 14 },
+                    settings: { fontSize: 15 }, // Default slightly larger
 
                     days: [
                         { weekday: 'Wed', date: '4/9' }, { weekday: 'Thu', date: '4/10' }, { weekday: 'Fri', date: '4/11' },
@@ -714,10 +717,16 @@
                 }
             },
             watch: {
-                selectedDayIndex() { this.fetchWeather(); }
+                selectedDayIndex() { this.fetchWeather(); },
+                // ⚙️ 這裡就是修復後的 Watcher！
+                'settings.fontSize': function(newVal) {
+                    document.documentElement.style.fontSize = newVal + 'px';
+                }
             },
             mounted() {
                 this.fetchWeather();
+                // 啟動時應用預設字體
+                document.documentElement.style.fontSize = this.settings.fontSize + 'px';
             },
             methods: {
                 fetchWeather() {
@@ -769,7 +778,8 @@
                 removeShoppingItem(idx) { this.shoppingList.splice(idx, 1); },
                 formatText(text) {
                     if (!text) return '';
-                    return text;
+                    // 簡單替換 <span class="highlight-red">...</span> 為 HTML
+                    return text; // Vue v-html 會處理 HTML 標籤
                 }
             }
         }).mount('#app');
