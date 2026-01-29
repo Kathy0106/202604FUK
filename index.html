@@ -37,6 +37,25 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
+        /* 專用 Gallery 捲軸樣式 (V91 新增) */
+        .gallery-scroll {
+            overflow-x: auto;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: var(--accent-green) #E0F2F1; /* Firefox */
+        }
+        .gallery-scroll::-webkit-scrollbar {
+            height: 8px; /* 捲軸高度 */
+        }
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: #E0F2F1;
+            border-radius: 4px;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background-color: var(--accent-green);
+            border-radius: 4px;
+            border: 2px solid #E0F2F1;
+        }
+
         /* 溫泉風卡片 */
         .onsen-card {
             background-color: var(--card-white);
@@ -59,15 +78,15 @@
             transition: all 0.3s ease;
         }
 
-        /* Lightbox & Modal (Fixed Z-Index) */
+        /* Lightbox & Modal */
         .overlay-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.95); /* Darker for lightbox */
-            z-index: 10000; /* Highest Priority */
+            background-color: rgba(0,0,0,0.95);
+            z-index: 10000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,8 +98,6 @@
             opacity: 1;
             pointer-events: auto;
         }
-        
-        /* Emergency Modal Content */
         .modal-content {
             background: white;
             padding: 20px;
@@ -96,7 +113,6 @@
             transform: scale(1);
         }
 
-        /* Lightbox Image Animation */
         .lightbox-img {
             max-width: 100%;
             max-height: 80vh;
@@ -144,19 +160,11 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-
-        /* Snap Gallery */
-        .snap-x {
-            scroll-snap-type: x mandatory;
-        }
-        .snap-center {
-            scroll-snap-align: center;
-        }
     </style>
 </head>
 <body class="h-screen w-screen overflow-hidden">
 
-    <div id="app" class="h-full flex flex-col relative transition-colors duration-700">
+    <div id="app" class="h-full flex flex-col relative transition-colors duration-700" :style="{ fontSize: settings.fontSize + 'px' }">
 
         <div class="flex-1 flex flex-col relative z-10 h-full">
             
@@ -328,6 +336,9 @@
                                         <span>HKG → FUK (CX588)</span>
                                         <span>4/9</span>
                                     </div>
+                                    <a href="https://www.google.com/search?q=CX588+flight+status" target="_blank" class="block w-full text-center py-2 mt-2 rounded-lg border border-dashed border-[#B2DFDB] text-[#00796B] text-xs font-bold hover:bg-[#E0F2F1] transition-colors">
+                                        <i class="fa-solid fa-wifi mr-1"></i> 查看實時狀態
+                                    </a>
                                 </div>
                                 <div class="border-t-2 border-dashed border-[#E0E0E0]"></div>
                                 <div>
@@ -343,6 +354,9 @@
                                         <span>FUK → HKG (CX589)</span>
                                         <span>4/14</span>
                                     </div>
+                                    <a href="https://www.google.com/search?q=CX589+flight+status" target="_blank" class="block w-full text-center py-2 mt-2 rounded-lg border border-dashed border-[#B2DFDB] text-[#00796B] text-xs font-bold hover:bg-[#E0F2F1] transition-colors">
+                                        <i class="fa-solid fa-wifi mr-1"></i> 查看實時狀態
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -429,7 +443,7 @@
                         <div class="onsen-card p-4">
                             <h4 class="font-bold text-[#004D40] text-sm mb-2"><i class="fa-solid fa-images mr-2"></i>地獄蒸 Menu 相簿 (點擊放大)</h4>
                             
-                            <div class="flex overflow-x-auto gap-3 p-2 no-scrollbar snap-x">
+                            <div class="flex overflow-x-auto gap-3 p-2 gallery-scroll snap-x">
                                 <div v-for="(img, index) in menuImages" :key="index" class="snap-center shrink-0 w-32 h-24 rounded-lg overflow-hidden shadow-sm border border-[#B2DFDB] relative group cursor-pointer" @click="openGallery(index)">
                                     <img :src="img.src" class="w-full h-full object-cover" :alt="img.title">
                                     <div class="absolute bottom-0 left-0 w-full bg-black/50 text-white text-[10px] text-center py-0.5">
@@ -526,7 +540,6 @@
                 </button>
 
                 <div class="relative w-full h-[80vh] flex items-center justify-center">
-                    
                     <button @click.stop="prevGalleryImage" class="absolute left-2 z-50 text-white bg-black/30 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm active:scale-90 transition-transform">
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
@@ -536,13 +549,16 @@
                     <button @click.stop="nextGalleryImage" class="absolute right-2 z-50 text-white bg-black/30 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm active:scale-90 transition-transform">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
-
                 </div>
 
                 <div class="absolute bottom-10 bg-black/50 px-4 py-1 rounded-full text-white text-xs font-bold backdrop-blur-md">
                     {{ currentGalleryIndex + 1 }} / {{ menuImages.length }}
                 </div>
             </div>
+        </div>
+        
+        <div :class="['overlay-bg', { 'active': showImageModal }]" @click="showImageModal = false">
+            <img :src="currentImageSrc" class="lightbox-img" @click.stop>
         </div>
 
         <button v-if="activeTab === 'itinerary'" @click="openAddModal" class="absolute bottom-8 right-5 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl z-50 text-white transition-transform active:scale-90 bg-[#00897B]">
@@ -675,11 +691,10 @@
                     weather: { city_name: '別府, 日本', temp: '--', feels_like: '--', icon: 'fa-spinner fa-spin' },
                     apiKey: 'cc2dab2806da14aec6dab2ed8260a1c4',
                     
-                    settings: { fontSize: 15 }, // Default slightly larger
+                    settings: { fontSize: 15 }, 
 
-                    // V90 New: Menu Images Array
                     menuImages: Array.from({length: 47}, (_, i) => ({
-                        src: `./menu_${i+1}.jpg`, // Expects menu_1.jpg to menu_47.jpg
+                        src: `./menu_${i+1}.jpg`, 
                         title: `Menu Page ${i+1}`
                     })),
 
@@ -795,7 +810,10 @@
             },
             watch: {
                 selectedDayIndex() { this.fetchWeather(); },
-                'settings.fontSize': function(newVal) { document.documentElement.style.fontSize = newVal + 'px'; }
+                // ⚙️ Watcher for font size
+                'settings.fontSize': function(newVal) {
+                    document.documentElement.style.fontSize = newVal + 'px';
+                }
             },
             mounted() {
                 this.fetchWeather();
@@ -859,7 +877,8 @@
                         }
                         this.itineraryData[this.selectedDayIndex].push({
                             time: this.newItem.time || '00:00',
-                            title: this.newItem.title, 
+                            title: this.newShopping.name, // Use newItem.title here? Assuming user meant generic add
+                            title: this.newItem.title,
                             category: this.newItem.category || 'sightseeing',
                             desc: '',
                             transportType: 'walk'
