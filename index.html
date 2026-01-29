@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🌸2026 九洲四大長老自駕🌸</title>
+    <title>2026 九洲四大長老自駕 V87</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -156,7 +156,7 @@
                 
                 <div class="absolute bottom-8 left-6 text-white text-shadow pr-40">
                     <h1 class="text-xl font-bold tracking-widest leading-tight mb-1 drop-shadow-md">2026 九州自駕</h1>
-                    <p class="text-[10px] opacity-90 font-mono"><i class="fa-solid fa-wheelchair mr-1"></i>四大長老 • 終極行動指南</p>
+                    <p class="text-[10px] opacity-90 font-mono"><i class="fa-solid fa-wheelchair mr-1"></i>四大長老 (爸/媽/姑姐/姑丈) 專用</p>
                 </div>
             </div>
 
@@ -167,7 +167,7 @@
                         
                         <div class="sticky top-0 z-40 bg-[#E0F2F1]/95 backdrop-blur-md shadow-sm border-b-2 border-dashed border-[#B2DFDB] px-5 pt-4 pb-2 transition-all duration-300">
                             
-                            <div class="flex justify-between items-center mb-4">
+                            <div class="flex justify-between items-center mb-4 px-5">
                                 <div class="flex items-center gap-2">
                                     <span class="text-xs font-bold bg-white px-2 py-1 rounded-lg border-2 dashed border-[#B2DFDB] text-[#4DB6AC]">還有</span>
                                     <span class="text-4xl font-black font-mono text-[#00897B]">
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                             
-                            <div class="flex space-x-3 overflow-x-auto no-scrollbar pb-2">
+                            <div class="flex space-x-3 overflow-x-auto no-scrollbar px-5 pb-3">
                                 <div v-for="(day, index) in days" :key="index" 
                                      @click="selectedDayIndex = index"
                                      class="flex-shrink-0 flex flex-col items-center justify-center w-20 h-20 rounded-2xl transition-all duration-300 snap-center cursor-pointer border-2 border-dashed shadow-sm"
@@ -361,6 +361,84 @@
                             </div>
                         </div>
 
+                        <div class="onsen-card overflow-hidden border-2 dashed border-[#EF9A9A]">
+                            <div class="bg-[#FFEBEE] p-3 text-[#C62828] font-bold flex justify-between items-center">
+                                <span><i class="fa-solid fa-bell mr-2"></i>To-Book 搶訂清單</span>
+                                <span class="text-[10px] bg-[#C62828] text-white px-2 py-0.5 rounded-full">必做</span>
+                            </div>
+                            <div class="p-4 text-xs space-y-3 bg-white">
+                                <div>
+                                    <strong class="block text-[#C62828] mb-1">🚨 Level 1: 即刻做 (Immediate)</strong>
+                                    <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                                        <li><strong>Day 1 野乃別府:</strong> Moderate Twin (需車位+輪椅清潔)</li>
+                                        <li><strong>Day 2 深山山莊:</strong> 洋室 1F (需痛風餐轉肉+Golf Cart)</li>
+                                        <li><strong>柳川御花:</strong> 官網預約</li>
+                                        <li><strong>租車:</strong> Noah/Alphard (ETC+NOC)</li>
+                                    </ul>
+                                </div>
+                                <div class="border-t border-dashed border-[#FFCDD2] pt-2">
+                                    <strong class="block text-[#EF6C00] mb-1">⚠️ Level 2: 3月初 (1個月前)</strong>
+                                    <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                                        <li><strong>華味鳥 (天神):</strong> 3月12日 (訂 Table Seat)</li>
+                                        <li><strong>宮崎牛 みやちく:</strong> 4月6日 (Tabelog)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="onsen-card overflow-hidden border-l-4 border-[#FFB74D]">
+                            <div class="bg-[#FFF3E0] p-3 text-[#EF6C00] font-bold">
+                                <span><i class="fa-solid fa-utensils mr-2"></i>餐廳情報總覽</span>
+                            </div>
+                            <div class="p-4 space-y-4 bg-white">
+                                <div v-for="res in diningList" :key="res.name" class="flex gap-3 text-sm border-b border-dashed border-[#FFE0B2] pb-3 last:border-0 last:pb-0">
+                                    <div class="font-bold text-[#EF6C00] w-10 flex-shrink-0 text-center leading-tight">
+                                        <span class="block text-xs text-gray-400">{{ res.date }}</span>
+                                        {{ res.time }}
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-[#5D4037]">{{ res.name }}</div>
+                                        <div class="text-xs text-gray-500 mt-1 flex items-start gap-1"><i class="fa-solid fa-location-dot mt-0.5"></i> {{ res.addr }}</div>
+                                        <div class="text-xs text-gray-500 mt-0.5"><i class="fa-solid fa-phone mr-1"></i> {{ res.tel }}</div>
+                                        <div v-if="res.note" class="text-[10px] text-[#EF6C00] mt-1 font-bold bg-[#FFF3E0] px-1.5 py-0.5 rounded inline-block">{{ res.note }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="onsen-card p-4">
+                            <h4 class="font-bold text-[#004D40] text-sm mb-2"><i class="fa-solid fa-utensils mr-2"></i>地獄蒸 Menu</h4>
+                            <div class="relative aspect-video rounded-lg overflow-hidden cursor-pointer group shadow-sm border border-[#B2DFDB]" @click="openImage('./Menu.jpg')">
+                                <img src="./Menu.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Menu Preview" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-xs text-gray-400\'>Menu.jpg 未找到</div>'">
+                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="text-white text-xs font-bold bg-black/50 px-2 py-1 rounded"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>放大</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="onsen-card overflow-hidden border-l-4 border-[#26A69A]">
+                            <div class="bg-[#E0F2F1] p-3 text-[#00695C] font-bold">
+                                <span><i class="fa-solid fa-square-parking mr-2"></i>鐵輪地獄蒸 泊車秘訣</span>
+                            </div>
+                            <div class="p-4 text-sm bg-white space-y-3">
+                                <div class="flex gap-3">
+                                    <div class="bg-[#B2DFDB] text-[#004D40] w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs mt-0.5">1</div>
+                                    <div>
+                                        <strong class="block text-[#004D40]">先落客：地獄蒸工房 鉄輪</strong>
+                                        <p class="text-xs text-gray-600">餐廳門口路窄，但可暫停。爸爸先落車入去霸位，姑丈再去泊車。</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="bg-[#B2DFDB] text-[#004D40] w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs mt-0.5">2</div>
+                                    <div>
+                                        <strong class="block text-[#004D40]">去泊：鉄輪温泉地区駐車場</strong>
+                                        <div class="text-xs font-mono font-bold text-[#00796B] bg-[#E0F2F1] px-1 rounded inline-block mt-0.5 mb-0.5">Mapcode: 46 521 268*52</div>
+                                        <p class="text-xs text-gray-600">泊好行 3-5 分鐘落斜返餐廳。如果管理員問，指住餐廳話食飯就得。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="onsen-card p-5">
                             <h3 class="font-bold mb-3 text-sm text-[#00897B]"><i class="fa-solid fa-coins mr-2"></i>匯率換算 (JPY)</h3>
                             <div class="flex items-center gap-3 mb-2">
@@ -380,7 +458,21 @@
 
                     <div v-if="activeTab === 'shopping'" class="px-5 pt-4">
                         <div class="onsen-card p-5 mb-4">
-                             <div class="text-center text-gray-400">購物清單...</div>
+                            <h3 class="font-bold mb-3 text-sm text-[#004D40]">🛍️ 必買清單 (四大長老版)</h3>
+                            <div class="space-y-2">
+                                <div v-for="(item, idx) in shoppingList" :key="idx" class="flex flex-col p-3 bg-[#FAFAFA] border border-dashed border-[#EEEEEE] rounded-xl relative">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" class="w-5 h-5 rounded border-[#B2DFDB] accent-[#00897B]">
+                                        <span class="text-sm font-bold text-[#004D40]">{{ item.name }}</span>
+                                    </div>
+                                    <div class="text-[10px] text-gray-500 pl-8 mt-1">{{ item.note }}</div>
+                                    <button @click="removeShoppingItem(idx)" class="absolute top-3 right-3 text-[#B2DFDB] hover:text-[#EF5350]"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                                <div class="flex gap-2 mt-4">
+                                    <input v-model="newShopping.name" placeholder="新增物品..." class="flex-1 bg-[#F5F5F5] p-3 rounded-xl text-sm outline-none text-[#004D40]">
+                                    <button @click="addShoppingItem" class="w-10 h-10 rounded-xl text-white flex items-center justify-center shadow-md active:scale-95 text-lg bg-[#00897B]"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
@@ -388,6 +480,7 @@
                         <div class="onsen-card p-6 mb-4 text-center border-none bg-[#00897B] text-white">
                             <p class="text-xs text-white/80 mb-1">總花費 (日元)</p>
                             <div class="text-4xl font-bold mb-1">¥{{ totalExpenses.toLocaleString() }}</div>
+                             <p class="text-[10px] text-white/60">≈ HK$ {{ (totalExpenses * exchangeRate).toFixed(0) }}</p>
                         </div>
                         <button class="w-full mt-4 py-3 rounded-xl text-white font-bold shadow-md active:scale-95 text-sm bg-[#00897B]">記一筆</button>
                     </div>
@@ -415,20 +508,20 @@
                 <div class="bg-red-50 p-4 rounded-xl border-2 border-red-200">
                     <p class="text-sm font-bold text-gray-600 mb-1">痛風・飲食禁忌 (示出用)</p>
                     <p class="text-lg font-black text-red-700 leading-relaxed">
-                        私の父は痛風ですので、<br>
+                        同行者に痛風の者がいますので、<br>
                         <span class="text-2xl">内臓類、貝類</span>、<br>
                         そして<span class="text-2xl">スープ</span>は<br>
                         <span class="text-3xl border-b-4 border-red-500">厳禁です</span>。
                     </p>
-                    <p class="text-xs text-gray-500 mt-2">Translate: My father has gout. No internal organs, shellfish, or soup broth.</p>
+                    <p class="text-xs text-gray-500 mt-2">Translate: Someone in our group has gout. No internal organs, shellfish, or soup broth.</p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3 mt-4">
-                    <a href="https://www.google.com/maps/search/道の駅/" target="_blank" class="bg-blue-500 text-white py-3 rounded-xl font-bold shadow-md active:scale-95 flex flex-col items-center">
+                    <a href="https://www.google.com/maps/search/道の駅" target="_blank" class="bg-blue-500 text-white py-3 rounded-xl font-bold shadow-md active:scale-95 flex flex-col items-center">
                         <i class="fa-solid fa-restroom text-2xl mb-1"></i>
                         <span>搵 道之驛 (廁所)</span>
                     </a>
-                    <a href="https://www.google.com/maps/search/コンビニ/" target="_blank" class="bg-orange-500 text-white py-3 rounded-xl font-bold shadow-md active:scale-95 flex flex-col items-center">
+                    <a href="https://www.google.com/maps/search/convenience+store" target="_blank" class="bg-orange-500 text-white py-3 rounded-xl font-bold shadow-md active:scale-95 flex flex-col items-center">
                         <i class="fa-solid fa-store text-2xl mb-1"></i>
                         <span>搵 便利店</span>
                     </a>
@@ -472,7 +565,20 @@
         </div>
 
         <div v-if="showSettings" class="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center" @click.self="showSettings = false">
+            <div class="bg-white w-full sm:w-96 rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl animate-slide-up">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold text-[#004D40]">設定</h3>
+                    <button @click="showSettings = false" class="text-[#BDBDBD]"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-bold text-[#00695C]">字體大小</span>
+                        <span class="text-xs text-[#BDBDBD]">{{ settings.fontSize }}px</span>
+                    </div>
+                    <input type="range" min="12" max="24" step="1" v-model="settings.fontSize" class="w-full accent-[#00897B]">
+                </div>
             </div>
+        </div>
 
     </div>
 
@@ -505,15 +611,20 @@
                         { weekday: 'Sat', date: '4/12' }, { weekday: 'Sun', date: '4/13' }, { weekday: 'Mon', date: '4/14' }
                     ],
 
-                    // ... (Dining List Same as V76) ...
                     diningList: [
                         { date: '4/9', time: '19:30', name: '燒鳥 鳥ネ (Torine)', addr: '別府市北浜1-10-12', tel: '0977-21-1666', note: '電話預約' },
-                        // ... 其他保持不變
+                        { date: '4/10', time: '10:45', name: '地獄蒸工房 鉄輪', addr: '別府市鉄輪559-1', tel: '0977-66-3775', note: '11點前排隊' },
+                        { date: '4/11', time: '13:30', name: '紅牛丼 ごとう屋 (Gotoya)', addr: '阿蘇市一の宮町宮地3054', tel: '0967-22-0266', note: '免費泊車' },
+                        { date: '4/11', time: '19:00', name: '勝烈亭 豬排', addr: '熊本市中央区新市街8-18', tel: '096-322-8771', note: '泊辛島公園地下' },
+                        { date: '4/12', time: '12:30', name: '柳川御花 (對月館)', addr: '柳川市新外町1', tel: '0944-73-2189', note: '蒸籠鰻魚飯 (4/9前預約)' },
+                        { date: '4/12', time: '19:30', name: '博多華味鳥 (天神店)', addr: '福岡市中央区天神1-15-6', tel: '092-733-6050', note: '官網訂座' },
+                        { date: '4/13', time: '09:30', name: 'Bills 福岡 (水上公園)', addr: '福岡市中央区西中洲13-1', tel: '092-733-2555', note: '世界第一早餐' },
+                        { date: '4/13', time: '12:00', name: '宮崎牛鐵板燒 博多みやちく', addr: '博多区中洲5-2-1 2F', tel: '092-262-2914', note: 'Tabelog訂座 (4/6前)' },
+                        { date: '4/13', time: '18:30', name: '一蘭 (天神西通り店)', addr: '福岡市中央区大名2-1-57', tel: '092-713-6631', note: '長方形碗' }
                     ],
 
                     itineraryData: [
-                       // ... (Keep All Itinerary Data from V76) ...
-                       // Day 1
+                        // Day 1
                         [
                             { time: '15:30', title: '抵達福岡機場 & 租車', category: 'flight', desc: '1. 到1F櫃檯辦手續\n2. 上3F門口搭接駁車\n3. 取車 Noah/Alphard\n4. 姑丈拍片驗車', transportType: 'car', location: '福岡機場國際線', dadAction: '爸爸去洗手間，媽媽陪同。', parking: '', phone: '092-621-0100' },
                             { time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸開 ACC 輕鬆揸\n提示: 途經基山PA可去廁所', transportType: 'car', travelTime: '145km (1小時50分)', mapcode: '55 364 364*14' },
@@ -554,7 +665,7 @@
                             { time: '12:00', title: '午餐: 宮崎牛鉄板焼', category: 'food', desc: '中洲', transportType: 'walk', location: 'Miyazaki Beef Teppanyaki Hakata Miyachiku', dadAction: '就在附近，步行或揸車 2 分鐘。', parking: '對面 Gate\'s 停車場 (092-283-0555)', phone: '092-262-2914', mapcode: '13 318 472*17' },
                             { time: '14:00', title: 'LaLaport 福岡', category: 'shopping', desc: 'Tel: 092-707-9820', transportType: 'car', travelTime: '20分鐘', location: 'LaLaport Fukuoka', dadAction: '泊 South Entrance。入門口搵 Cafe 安置爸爸。', parking: 'South Parking', phone: '092-707-9820', mapcode: '13 162 481*57' },
                             { time: '18:30', title: '晚餐: 一蘭 天神西通り', category: 'food', desc: 'Tel: 092-713-6631', transportType: 'car', travelTime: '20分鐘', location: '一蘭 天神西通り店', dadAction: '姑姐排隊。爸爸在無印良品坐。\n⚠️ <span class="highlight-red">嚴禁飲湯！</span>', parking: '首選: 天神地下街停車場 (南)\n次選: 安國駐車場', phone: '092-713-6631', mapcode: '13 317 683*55' },
-                            { time: '20:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '必泊: 紙与大名停車場 (092-721-4649)\nMapcode: 13 317 486*17', dadAction: '門口落客，姑丈去泊車。\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>' }
+                            { time: '20:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>C. 安国駐車場 (近)<br>   Mapcode: 13 317 683*55<br>D. Times (後備)<br>   Mapcode: 13 317 546*33', dadAction: '門口落客，姑丈去泊車。\n🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>' }
                         ],
                         // Day 6
                         [
@@ -573,7 +684,14 @@
                         { name: 'Hotel JAL City Fukuoka Tenjin', dates: '4/12 - 4/14', phone: '092-712-7575', mapcode: '13 317 743*44' }
                     ],
                     shoppingList: [
-                        { name: '努努雞' }, { name: '福砂屋 長崎蛋糕' }, { name: '明太子 (Fukuya)' }, { name: '茅乃舍 高湯包' }, { name: 'Press Butter Sand (九州限定)' }
+                        { name: '努努雞 (冷炸雞)', note: '福岡必買宵夜 (機場/博多)' },
+                        { name: '福砂屋 長崎蛋糕', note: '底層有砂糖粒 (機場有)' },
+                        { name: '茅乃舍 高湯包', note: '主婦必備 (博多限定)' },
+                        { name: '明太子仙貝 (Menbei)', note: '福太郎 (香辣好食)' },
+                        { name: '柚子胡椒 (Yuzu Kosho)', note: '由布院/別府特產' },
+                        { name: '熊本熊周邊', note: '熊本站/部長辦公室' },
+                        { name: 'Press Butter Sand', note: '博多站 (草莓味 - 九州限定)' },
+                        { name: '薩隆巴斯/休足時間', note: '藥妝店 (比香港平)' }
                     ],
                     expenses: [],
                     
