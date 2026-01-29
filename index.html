@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 九州四大長老自駕 V89</title>
+    <title>🌸2026 九州四大長老自駕 🌸</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -66,7 +66,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.9); /* Darker for lightbox */
+            background-color: rgba(0,0,0,0.95); /* Darker for lightbox */
             z-index: 10000; /* Highest Priority */
             display: flex;
             justify-content: center;
@@ -98,16 +98,10 @@
 
         /* Lightbox Image Animation */
         .lightbox-img {
-            max-width: 95vw;
-            max-height: 90vh;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            max-width: 100%;
+            max-height: 80vh;
             object-fit: contain;
-        }
-        .overlay-bg.active .lightbox-img {
-            transform: scale(1);
+            transition: opacity 0.2s ease;
         }
         
         /* Floating Emergency Button */
@@ -149,6 +143,14 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
+        }
+
+        /* Snap Gallery */
+        .snap-x {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-center {
+            scroll-snap-align: center;
         }
     </style>
 </head>
@@ -326,9 +328,6 @@
                                         <span>HKG → FUK (CX588)</span>
                                         <span>4/9</span>
                                     </div>
-                                    <a href="https://www.google.com/search?q=CX588+flight+status" target="_blank" class="block w-full text-center py-2 mt-2 rounded-lg border border-dashed border-[#B2DFDB] text-[#00796B] text-xs font-bold hover:bg-[#E0F2F1] transition-colors">
-                                        <i class="fa-solid fa-wifi mr-1"></i> 查看實時狀態
-                                    </a>
                                 </div>
                                 <div class="border-t-2 border-dashed border-[#E0E0E0]"></div>
                                 <div>
@@ -344,9 +343,6 @@
                                         <span>FUK → HKG (CX589)</span>
                                         <span>4/14</span>
                                     </div>
-                                    <a href="https://www.google.com/search?q=CX589+flight+status" target="_blank" class="block w-full text-center py-2 mt-2 rounded-lg border border-dashed border-[#B2DFDB] text-[#00796B] text-xs font-bold hover:bg-[#E0F2F1] transition-colors">
-                                        <i class="fa-solid fa-wifi mr-1"></i> 查看實時狀態
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -431,13 +427,18 @@
                         </div>
 
                         <div class="onsen-card p-4">
-                            <h4 class="font-bold text-[#004D40] text-sm mb-2"><i class="fa-solid fa-image mr-2"></i>地獄蒸 Menu (點擊放大)</h4>
-                            <div class="relative aspect-video rounded-lg overflow-hidden cursor-pointer group shadow-sm border border-[#B2DFDB]" @click="openImage('./Menu.jpg')">
-                                <img src="./Menu.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Menu Preview" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-xs text-gray-400\'>Menu.jpg 未找到</div>'">
-                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <span class="text-white text-xs font-bold bg-black/50 px-2 py-1 rounded"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>放大</span>
+                            <h4 class="font-bold text-[#004D40] text-sm mb-2"><i class="fa-solid fa-images mr-2"></i>地獄蒸 Menu 相簿 (點擊放大)</h4>
+                            
+                            <div class="flex overflow-x-auto gap-3 p-2 no-scrollbar snap-x">
+                                <div v-for="(img, index) in menuImages" :key="index" class="snap-center shrink-0 w-32 h-24 rounded-lg overflow-hidden shadow-sm border border-[#B2DFDB] relative group cursor-pointer" @click="openGallery(index)">
+                                    <img :src="img.src" class="w-full h-full object-cover" :alt="img.title">
+                                    <div class="absolute bottom-0 left-0 w-full bg-black/50 text-white text-[10px] text-center py-0.5">
+                                        {{ img.title }}
+                                    </div>
                                 </div>
                             </div>
+                            
+                            <p class="text-[0.6rem] text-gray-400 mt-2 text-center">* 請將相片命名為 menu_1.jpg 至 menu_47.jpg 並放入資料夾</p>
                         </div>
 
                         <div class="onsen-card overflow-hidden border-l-4 border-[#26A69A]">
@@ -517,8 +518,31 @@
             <i class="fa-solid fa-notes-medical"></i>
         </button>
 
-        <div :class="['overlay-bg', { 'active': showImageModal }]" @click="showImageModal = false">
-            <img :src="currentImageSrc" class="lightbox-img" @click.stop>
+        <div :class="['overlay-bg', { 'active': showGalleryModal }]" @click="showGalleryModal = false">
+            <div class="w-full h-full flex flex-col justify-center items-center relative" @click.stop>
+                
+                <button @click="showGalleryModal = false" class="absolute top-4 right-4 text-white text-3xl z-50 p-2 drop-shadow-md">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="relative w-full h-[80vh] flex items-center justify-center">
+                    
+                    <button @click.stop="prevGalleryImage" class="absolute left-2 z-50 text-white bg-black/30 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm active:scale-90 transition-transform">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <img :src="currentGalleryImage" class="lightbox-img" alt="Menu Fullscreen">
+                    
+                    <button @click.stop="nextGalleryImage" class="absolute right-2 z-50 text-white bg-black/30 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm active:scale-90 transition-transform">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+                <div class="absolute bottom-10 bg-black/50 px-4 py-1 rounded-full text-white text-xs font-bold backdrop-blur-md">
+                    {{ currentGalleryIndex + 1 }} / {{ menuImages.length }}
+                </div>
+            </div>
         </div>
 
         <button v-if="activeTab === 'itinerary'" @click="openAddModal" class="absolute bottom-8 right-5 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl z-50 text-white transition-transform active:scale-90 bg-[#00897B]">
@@ -532,7 +556,7 @@
                     <button @click="showModal = false" class="text-[#BDBDBD]"><i class="fa-solid fa-xmark text-lg"></i></button>
                 </div>
                 <div class="space-y-4">
-                    <input v-model="newShopping.name" type="text" placeholder="標題 / 項目名稱" class="w-full p-3 bg-[#F5F5F5] rounded-xl border-none outline-none text-sm text-[#004D40]">
+                    <input v-model="newItem.title" type="text" placeholder="標題 / 項目名稱" class="w-full p-3 bg-[#F5F5F5] rounded-xl border-none outline-none text-sm text-[#004D40]">
                     <div class="flex gap-2">
                         <input v-model="newItem.time" type="time" class="w-1/3 p-3 bg-[#F5F5F5] rounded-xl outline-none text-sm text-[#004D40]">
                         <select v-model="newItem.category" class="w-2/3 p-3 bg-[#F5F5F5] rounded-xl outline-none text-sm text-[#004D40]">
@@ -640,7 +664,9 @@
                     showImageModal: false,
                     showEmergencyModal: false,
                     showHotelModal: false,
+                    showGalleryModal: false,
                     currentImageSrc: '',
+                    currentGalleryIndex: 0,
                     exchangeRate: 0.053,
                     calcJpy: '',
                     calcHkd: '',
@@ -650,6 +676,12 @@
                     apiKey: 'cc2dab2806da14aec6dab2ed8260a1c4',
                     
                     settings: { fontSize: 15 }, // Default slightly larger
+
+                    // V90 New: Menu Images Array
+                    menuImages: Array.from({length: 47}, (_, i) => ({
+                        src: `./menu_${i+1}.jpg`, // Expects menu_1.jpg to menu_47.jpg
+                        title: `Menu Page ${i+1}`
+                    })),
 
                     days: [
                         { weekday: 'Wed', date: '4/9' }, { weekday: 'Thu', date: '4/10' }, { weekday: 'Fri', date: '4/11' },
@@ -699,7 +731,7 @@
                             { time: '12:30', title: '午餐: 柳川御花', category: 'food', desc: 'Tel: 0944-73-2189\n對月館 (不坐船)', transportType: 'car', location: '柳川藩主立花邸 御花', dadAction: '停車場對面直入平路。爸爸只食鰻魚肉。', parking: '御花專用免費停車場', phone: '0944-73-2189', mapcode: '69 875 572*47' },
                             { time: '14:00', title: '出發往福岡', category: 'transport', desc: '高速公路', transportType: 'car', travelTime: '60km (1小時)' },
                             { time: '15:30', title: '大濠公園 & 美術館', category: 'sightseeing', desc: '導航: 092-714-6051', transportType: 'car', location: 'Fukuoka Art Museum', dadAction: '泊美術館場。推去 Starbucks。路面極好推。', parking: '福岡市美術館停車場', phone: '092-714-6051', mapcode: '13 315 634*55' },
-                            { time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', dadAction: '車入酒店彎位落客。姑丈去泊車。', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>   Tel: 092-722-6066<br>C. 安国駐車場 (近)<br>   Mapcode: 13 317 683*55<br>D. Times (後備)<br>   Mapcode: 13 317 546*33', phone: '092-712-7575', mapcode: '13 317 743*44' },
+                            { time: '18:00', title: 'Check-in JAL City 天神', category: 'hotel', desc: 'Tel: 092-712-7575', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', dadAction: '車入酒店彎位落客。姑丈去泊車。', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>C. 安国駐車場 (近)<br>   Mapcode: 13 317 683*55<br>D. Times (後備)<br>   Mapcode: 13 317 546*33', phone: '092-712-7575', mapcode: '13 317 743*44' },
                             { time: '19:30', title: '晚餐: 博多華味鳥', category: 'food', desc: 'Tel: 092-733-6050', transportType: 'walk', location: '博多華味鳥 天神店', dadAction: '⚠️ <span class="highlight-red">痛風紅燈: 嚴禁飲湯！</span>', parking: '', phone: '092-733-6050', mapcode: '13 317 653*41' },
                             { time: '21:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>C. 安国駐車場 (近)<br>   Mapcode: 13 317 683*55<br>D. Times (後備)<br>   Mapcode: 13 317 546*33', dadAction: '門口落客，姑丈去泊車。' }
                         ],
@@ -756,18 +788,17 @@
                         4: 3  // Day 5 -> Hotel 3
                     };
                     return this.hotels[hotelMap[this.selectedDayIndex]];
+                },
+                currentGalleryImage() {
+                     return this.menuImages[this.currentGalleryIndex].src;
                 }
             },
             watch: {
                 selectedDayIndex() { this.fetchWeather(); },
-                // ⚙️ 這裡就是修復後的 Watcher！
-                'settings.fontSize': function(newVal) {
-                    document.documentElement.style.fontSize = newVal + 'px';
-                }
+                'settings.fontSize': function(newVal) { document.documentElement.style.fontSize = newVal + 'px'; }
             },
             mounted() {
                 this.fetchWeather();
-                // 啟動時應用預設字體
                 document.documentElement.style.fontSize = this.settings.fontSize + 'px';
             },
             methods: {
@@ -810,6 +841,16 @@
                 openMap(loc) { if(loc) window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc)}`, '_blank'); },
                 openDoc() { window.open('https://docs.google.com/document/d/1-9dK_8o7HFytaM7hXTRCqiuSNXSW5wifVBBlOKS7PQQ/edit?usp=drivesdk', '_blank'); },
                 openImage(src) { this.currentImageSrc = src; this.showImageModal = true; },
+                openGallery(index) {
+                    this.currentGalleryIndex = index;
+                    this.showGalleryModal = true;
+                },
+                nextGalleryImage() {
+                    this.currentGalleryIndex = (this.currentGalleryIndex + 1) % this.menuImages.length;
+                },
+                prevGalleryImage() {
+                    this.currentGalleryIndex = (this.currentGalleryIndex - 1 + this.menuImages.length) % this.menuImages.length;
+                },
                 openAddModal() { this.showModal = true; },
                 confirmAdd() { 
                     if(this.newItem.title) {
@@ -818,8 +859,7 @@
                         }
                         this.itineraryData[this.selectedDayIndex].push({
                             time: this.newItem.time || '00:00',
-                            title: this.newShopping.name, // Fix: Use newItem.title
-                            title: this.newItem.title,
+                            title: this.newItem.title, 
                             category: this.newItem.category || 'sightseeing',
                             desc: '',
                             transportType: 'walk'
