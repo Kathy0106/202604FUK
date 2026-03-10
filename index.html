@@ -649,7 +649,7 @@
             data() {
                 return {
                     activeTab: 'itinerary',
-                    selectedDayIndex: 4, // 預設打開 Day 5 (4/13)
+                    selectedDayIndex: 0, // 修正：預設打開 Day 1 (4/9)
                     showModal: false,
                     showSettings: false,
                     showImageModal: false,
@@ -673,7 +673,6 @@
                         title: `Menu Page ${i+1}`
                     })),
 
-                    // 確保日期正確
                     days: [
                         { day: 'Day 1', weekday: 'Thu', date: '4/9' }, 
                         { day: 'Day 2', weekday: 'Fri', date: '4/10' }, 
@@ -730,7 +729,7 @@
                             { time: '19:30', title: '晚餐: 博多華味鳥', category: 'food', desc: 'Tel: 092-733-6050', transportType: 'walk', location: '博多華味鳥 天神店', dadAction: '✅ 雞肉安全！<br>⚠️ <span class="highlight-red">出示救命卡確保係「Table席」。絕對唔可以飲湯底/食雜炊(粥)！</span>', parking: '', phone: '092-733-6050', mapcode: '13 317 653*41' },
                             { time: '21:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息', transportType: 'car', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', parking: '<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Mapcode: 13 317 486*17<br>C. 安国駐車場 (近)<br>   Mapcode: 13 317 683*55<br>D. Times (後備)<br>   Mapcode: 13 317 546*33', dadAction: '門口落客，姑丈去泊車。' }
                         ],
-                        // Day 5 (V132 Updated: Flower Calendar Image)
+                        // Day 5 
                         [
                             { time: '08:30', title: '早餐: Bills 福岡', category: 'food', desc: 'Tel: 092-733-2555', transportType: 'car', location: 'Bills Fukuoka', dadAction: '水上公園 Ship Garden 1F', parking: '西中洲駐車場', phone: '092-733-2555', mapcode: '13 318 642*33' },
                             { time: '09:30', title: '出發往海之中道', category: 'transport', desc: '車程約 35 分鐘', transportType: 'car', travelTime: '35分鐘' },
