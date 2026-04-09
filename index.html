@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🌸2026 九州四大長老自駕🌸</title>
+    <title>🌸2026 九州四大長老自駕 🌸</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -251,7 +251,7 @@
                                                 </div>
                                             </div>
 
-                                            <div v-if="item.parking && !item.title.includes('JAL City')" class="mt-2 bg-blue-50 p-2 rounded-xl border border-dashed border-blue-200">
+                                            <div v-if="item.parking" class="mt-2 bg-blue-50 p-2 rounded-xl border border-dashed border-blue-200">
                                                 <div class="text-[0.7rem] text-[#1565C0] font-bold flex items-start">
                                                     <i class="fa-solid fa-square-parking mr-1.5 mt-0.5 text-base flex-shrink-0"></i>
                                                     <span class="leading-relaxed whitespace-pre-line" v-html="formatText(item.parking)"></span>
@@ -270,6 +270,7 @@
                                                     <i class="fa-solid fa-magnifying-glass-plus mr-0.5"></i>點擊放大
                                                 </div>
                                             </div>
+                                            
                                         </div>
 
                                         <div v-if="item.phone" class="w-24 flex-shrink-0 flex flex-col gap-2 justify-start mt-1">
@@ -458,13 +459,42 @@
         <div :class="['overlay-bg', { 'active': showEmergencyModal }]" @click="showEmergencyModal = false">
             <div class="modal-content text-center space-y-4" @click.stop>
                 <h3 class="text-xl font-black text-[#C62828] mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>緊急救命卡</h3>
+                
                 <div class="bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 text-left">
                     <p class="text-sm font-bold text-gray-600 mb-1"><i class="fa-solid fa-chair mr-1"></i>座位需求 (示出用)</p>
-                    <p class="text-lg font-black text-yellow-800 leading-relaxed">車椅子の者がおり、<b>足を曲げることができません</b>。靴を脱がずに座れる<b>「テーブル席」</b>をお願いします。</p>
+                    <p class="text-lg font-black text-yellow-800 leading-relaxed">
+                        車椅子の者がおり、<span class="text-2xl border-b-4 border-yellow-500">足を曲げることができません</span>。<br>
+                        靴を脱がずに座れる<span class="text-2xl border-b-4 border-yellow-500">「テーブル席」</span>をお願いします。<br>
+                        <span class="text-sm text-yellow-700">（座敷や掘りごたつは不可です）</span>
+                    </p>
+                    <p class="text-[0.65rem] text-gray-500 mt-2">Translate: Someone is in a wheelchair and cannot bend their legs. We need a Western-style table seat without taking off shoes.</p>
                 </div>
+
                 <div class="bg-red-50 p-4 rounded-2xl border-2 border-red-200 text-left">
                     <p class="text-sm font-bold text-gray-600 mb-1"><i class="fa-solid fa-ban mr-1"></i>痛風・飲食禁忌 (示出用)</p>
-                    <p class="text-lg font-black text-red-700 leading-relaxed">同行者に痛風の者がいます。<b>内臓類、貝類、スープ</b>は厳禁です。</p>
+                    <p class="text-lg font-black text-red-700 leading-relaxed">
+                        同行者に痛風の者がいますので、<br>
+                        <span class="text-2xl">内臓類、貝類</span>、<br>
+                        そして<span class="text-2xl">スープ</span>は<br>
+                        <span class="text-3xl border-b-4 border-red-500">厳禁です</span>。
+                    </p>
+                    <p class="text-[0.65rem] text-gray-500 mt-2">Translate: Someone in our group has gout. No internal organs, shellfish, or soup broth.</p>
+                </div>
+
+                <div class="bg-cyan-50 p-4 rounded-2xl border-2 border-cyan-200 text-left">
+                    <p class="text-sm font-bold text-gray-600 mb-1"><i class="fa-regular fa-snowflake mr-1"></i>冰敷需求 (示出用)</p>
+                    <p class="text-lg font-black text-cyan-800 leading-relaxed">
+                        足をアイシング（冷却）したいので、<br>
+                        <span class="text-2xl border-b-4 border-cyan-500">氷</span> と <br>
+                        <span class="text-2xl border-b-4 border-cyan-500">余分なタオル</span> を<br>
+                        お願いします。
+                    </p>
+                    <p class="text-[0.65rem] text-gray-500 mt-2">Translate: My father needs to ice his feet. Please provide ice and extra towels.</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 mt-4">
+                    <a href="https://www.google.com/maps/search/道の駅/" target="_blank" class="bg-blue-500 text-white py-3 rounded-2xl font-bold shadow-md active:scale-95 flex flex-col items-center"><i class="fa-solid fa-restroom text-2xl mb-1"></i><span>搵 道之驛 (廁所)</span></a>
+                    <a href="https://www.google.com/maps/search/コンビニ/" target="_blank" class="bg-orange-500 text-white py-3 rounded-2xl font-bold shadow-md active:scale-95 flex flex-col items-center"><i class="fa-solid fa-store text-2xl mb-1"></i><span>搵 便利店</span></a>
                 </div>
                 <button @click="showEmergencyModal = false" class="mt-4 text-gray-400 underline text-sm w-full py-2">關閉</button>
             </div>
