@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>2026 九州四大長老自駕 V143 (終極修復版)</title>
+    <title>2026 九州四大長老自駕 V144 (終極防崩潰版)</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -30,13 +30,19 @@
             --shadow-soft: 0 8px 24px rgba(0, 137, 123, 0.15);
         }
 
+        /* ✅ V144 修復：使用傳統安全語法鎖定高度，防止白屏死機 */
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
             background-color: var(--bg-onsen);
             color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            height: 100dvh;
+            width: 100vw;
+            overflow: hidden;
             overscroll-behavior-y: none;
             -webkit-tap-highlight-color: transparent;
-            font-size: 15px; 
         }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -154,7 +160,7 @@
         }
     </style>
 </head>
-<body class="h-[100dvh] w-screen overflow-hidden bg-[#E0F2F1]">
+<body>
 
     <div id="app" class="h-full flex flex-col relative transition-colors duration-700" :style="{ fontSize: settings.fontSize + 'px' }">
 
@@ -256,7 +262,7 @@
                                                 </div>
                                             </div>
 
-                                            <div v-if="item.parking" class="mt-2 bg-blue-50 p-2 rounded-xl border border-dashed border-blue-200">
+                                            <div v-if="item.parking && !item.title.includes('JAL City')" class="mt-2 bg-blue-50 p-2 rounded-xl border border-dashed border-blue-200">
                                                 <div class="text-[0.7rem] text-[#1565C0] font-bold flex items-start">
                                                     <i class="fa-solid fa-square-parking mr-1.5 mt-0.5 text-base flex-shrink-0"></i>
                                                     <span class="leading-relaxed whitespace-pre-line" v-html="formatText(item.parking)"></span>
@@ -516,24 +522,28 @@
         <div :class="['overlay-bg', { 'active': showEmergencyModal }]" @click="showEmergencyModal = false">
             <div class="modal-content text-center space-y-4" @click.stop>
                 <h3 class="text-xl font-black text-[#C62828] mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>緊急救命卡</h3>
+                
                 <div class="bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 text-left">
                     <p class="text-sm font-bold text-gray-600 mb-1"><i class="fa-solid fa-chair mr-1"></i>座位需求 (示出用)</p>
                     <p class="text-lg font-black text-yellow-800 leading-relaxed">車椅子の者がおり、<b>足を曲げることができません</b>。靴を脱がずに座れる<b>「テーブル席」</b>をお願いします。</p>
                     <p class="text-[0.65rem] text-gray-500 mt-2">Translate: Someone is in a wheelchair and cannot bend their legs. We need a Western-style table seat without taking off shoes.</p>
                 </div>
+                
                 <div class="bg-red-50 p-4 rounded-2xl border-2 border-red-200 text-left">
                     <p class="text-sm font-bold text-gray-600 mb-1"><i class="fa-solid fa-ban mr-1"></i>痛風・飲食禁忌 (示出用)</p>
                     <p class="text-lg font-black text-red-700 leading-relaxed">同行者に痛風の者がいます。<b>内臓類、貝類、スープ</b>は厳禁です。</p>
                     <p class="text-[0.65rem] text-gray-500 mt-2">Translate: Someone in our group has gout. No internal organs, shellfish, or soup broth.</p>
                 </div>
+                
                 <div class="bg-cyan-50 p-4 rounded-2xl border-2 border-cyan-200 text-left">
                     <p class="text-sm font-bold text-gray-600 mb-1"><i class="fa-regular fa-snowflake mr-1"></i>冰敷需求 (示出用)</p>
                     <p class="text-lg font-black text-cyan-800 leading-relaxed">足をアイシング（冷却）したいので、<b>氷</b> と <b>余分なタオル</b> をお願いします。</p>
                     <p class="text-[0.65rem] text-gray-500 mt-2">Translate: My father needs to ice his feet. Please provide ice and extra towels.</p>
                 </div>
+                
                 <div class="grid grid-cols-2 gap-3 mt-4">
-                    <a href="https://www.google.com/maps/search/道の駅/" target="_blank" class="bg-blue-500 text-white py-3 rounded-2xl font-bold shadow-md active:scale-95 flex flex-col items-center"><i class="fa-solid fa-restroom text-2xl mb-1"></i><span>搵 道之驛 (廁所)</span></a>
-                    <a href="https://www.google.com/maps/search/コンビニ/" target="_blank" class="bg-orange-500 text-white py-3 rounded-2xl font-bold shadow-md active:scale-95 flex flex-col items-center"><i class="fa-solid fa-store text-2xl mb-1"></i><span>搵 便利店</span></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=道の駅" target="_blank" class="bg-blue-500 text-white py-3 rounded-2xl font-bold shadow-md active:scale-95 flex flex-col items-center"><i class="fa-solid fa-restroom text-2xl mb-1"></i><span>搵 道之驛 (廁所)</span></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=コンビニ" target="_blank" class="bg-orange-500 text-white py-3 rounded-2xl font-bold shadow-md active:scale-95 flex flex-col items-center"><i class="fa-solid fa-store text-2xl mb-1"></i><span>搵 便利店</span></a>
                 </div>
                 <button @click="showEmergencyModal = false" class="mt-4 text-gray-400 underline text-sm w-full py-2">關閉</button>
             </div>
@@ -589,7 +599,8 @@
                     itineraryData: [
                         // Day 1
                         [
-                            { time: '15:30', title: '抵達福岡機場 & 租車', category: 'flight', desc: '1. 1F櫃檯手續\n2. 取車 Nissan Serena', phone: '092-621-0100' },
+                            { time: '15:30', title: '抵達福岡機場 & 租車', category: 'flight', desc: '1. 1F櫃檯手續\n2. 取車 Nissan Serena', phone: '092-621-0100', dadAction: '爸爸去洗手間，媽媽陪同。' },
+                            { time: '17:00', title: '出發往別府', category: 'transport', desc: '爸爸開 ACC 輕鬆揸\n提示: 途經基山PA可去廁所', transportType: 'car', travelTime: '145km (1小時50分)' },
                             { time: '19:30', title: '晚餐: 活魚迴轉壽司 水天', category: 'food', desc: '別府最高級迴轉壽司', phone: '0977-21-0465', parking: '餐廳免費停車場', dadAction: '✅ 壽司店對痛風最友善！爸爸可主攻：茶碗蒸、玉子燒、烏冬、白身魚。\n⚠️ <span class="highlight-red">出示救命卡要求「Table席 (テーブル席)」，輪椅直接泊埋去！</span>' },
                             { time: '21:00', title: 'Check-in 御宿野乃別府', category: 'hotel', phone: '0977-21-5489', dadAction: '全館塌塌米。入大堂前抹乾淨輪椅轆。\n🧊 <span class="highlight-red">必做: 冰敷腳部 (製冰機在大浴場層)。</span>' }
                         ],
@@ -713,7 +724,8 @@
                         ? `bg-[#00897B] text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center scale-110` 
                         : `bg-white/90 text-[#00897B] w-8 h-8 rounded-full shadow flex items-center justify-center`;
                 },
-                openMap(loc) { if(loc) window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc)}`, '_blank'); },
+                // ✅ V144: 修復 Google Map 安全連結，防止錯誤
+                openMap(loc) { if(loc) window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(loc), '_blank'); },
                 openDoc() { window.open('https://docs.google.com/document/d/1-9dK_8o7HFytaM7hXTRCqiuSNXSW5wifVBBlOKS7PQQ/edit', '_blank'); },
                 openImage(src) { this.currentImageSrc = src; this.showImageModal = true; },
                 openGallery(idx) { this.currentGalleryIndex = idx; this.showGalleryModal = true; },
