@@ -646,7 +646,7 @@
             data() {
                 return {
                     activeTab: 'itinerary',
-                    selectedDayIndex: 0, 
+                    selectedDayIndex: 1, // 預設打開 Day 2 (4/10) 
                     showModal: false,
                     showSettings: false,
                     showImageModal: false,
@@ -681,8 +681,8 @@
 
                     diningList: [
                         { date: '4/9', time: '19:30', name: '活魚迴轉壽司 水天', addr: '別府市山の手町9-32', tel: '0977-21-0465', note: '高級壽司 / Table席 / 痛風最安全' },
-                        { date: '4/10', time: '10:45', name: '地獄蒸工房 鉄輪', addr: '別府市鉄輪559-1', tel: '0977-66-3775', note: '11點前排隊 / 霸普通枱' },
-                        { date: '4/11', time: '13:30', name: '紅牛丼 ごとう屋', addr: '阿蘇市一の宮町宮地3054', tel: '0967-22-0266', note: '要求Table席 / 爸爸食地雞' },
+                        { date: '4/10', time: '11:00', name: '地獄蒸工房 鉄輪', addr: '別府市鉄輪559-1', tel: '0977-66-3775', note: '霸普通枱 / 痛風友善' },
+                        { date: '4/11', time: '13:00', name: '紅牛丼 ごとう屋', addr: '阿蘇市一の宮町宮地3054', tel: '0967-22-0266', note: '要求Table席 / 爸爸食地雞' },
                         { date: '4/11', time: '19:00', name: '勝烈亭 豬排', addr: '熊本市中央区新市街8-18', tel: '096-322-8771', note: '要求Table席 / 泊辛島地下' },
                         { date: '4/12', time: '12:30', name: '若松屋 (Wakamatsuya)', addr: '柳川市沖端町26', tel: '0944-72-3163', note: '柳川頂級老字號 (爸爸食親子丼/其他人鰻魚)' },
                         { date: '4/12', time: '19:30', name: '博多華味鳥 (天神西通店)', addr: '福岡市中央区天神2-7-9 2F', tel: '092-724-0502', note: '預約號 #83975' },
@@ -699,13 +699,14 @@
                             { time: '19:30', title: '晚餐: 活魚迴轉壽司 水天 (Suiten)', category: 'food', desc: 'Tel: 0977-21-0465\n別府最高級迴轉壽司，長老必愛！', transportType: 'car', location: 'Suiten Beppu Yamanote', dadAction: '✅ 壽司店對痛風最友善！爸爸可主攻：茶碗蒸、玉子燒、烏冬、白身魚。\n⚠️ <span class="highlight-red">出示救命卡要求「Table席 (テーブル席)」，輪椅直接泊埋去！</span>', parking: '餐廳自帶超大免費停車場', phone: '0977-21-0465' },
                             { time: '21:00', title: 'Check-in 御宿野乃', category: 'hotel', desc: 'Tel: 0977-21-5489', transportType: 'car', location: '御宿 野乃別府', dadAction: '全館塌塌米。入大堂前抹乾淨輪椅轆。\n🧊 <span class="highlight-red">必做: 冰敷腳部 (製冰機在大浴場層)。</span>', parking: '酒店 Tower Parking', phone: '0977-21-5489' }
                         ],
-                        // Day 2
+                        // Day 2 (V136 Updated: Jouka Park Cherry Blossoms)
                         [
                             { time: '10:00', title: '海地獄', category: 'sightseeing', desc: 'Tel: 0977-66-0121\n睇藍色溫泉池', transportType: 'car', travelTime: '6km (15分鐘)', location: '海地獄', dadAction: '只行外面鋪裝路。<span class="highlight-red">嚴禁推入温室 (路窄/濕熱)。</span>', parking: '門口有超大免費停車場', phone: '0977-66-0121' },
                             { time: '11:00', title: '午餐: 地獄蒸工房 鉄輪', category: 'food', desc: 'Tel: 0977-66-3775\n自己蒸野食', transportType: 'car', travelTime: '2分鐘', location: '地獄蒸し工房 鉄輪', dadAction: '爸爸先入座。姑丈買飛。爸爸只食蒸雞/蛋/菜。\n✅ <span class="highlight-red">霸位時揀普通枱！蒸煮食物去油減脂，對痛風極度友善！</span>', parking: '鉄輪温泉地区駐車場 (輸入餐廳電話即可: 0977-66-3775)', phone: '0977-66-3775' },
-                            { time: '13:15', title: '由布院 (分頭行事)', category: 'sightseeing', desc: '導航至 Cafe La Ruche: 0977-28-8500', transportType: 'car', travelTime: '25km (35分鐘)', location: '金鱗湖', dadAction: '1. 爸爸+姑丈 -> Cafe La Ruche 湖邊嘆茶\n2. 媽媽+姑姐 -> 湯之坪街道 掃貨', parking: '首選: 天祖神社 (必泊)\n次選: 狹霧台展望台 (看風景不落市區)', phone: '0977-28-8500' },
-                            { time: '16:00', title: '出發往黑川溫泉', category: 'transport', desc: '山路較多，請慢駛', transportType: 'car', travelTime: '40km (1小時)' },
-                            { time: '17:00', title: 'Check-in 深山山莊', category: 'hotel', desc: 'Tel: 0967-44-1101', transportType: 'car', location: '黒川温泉 深山山荘', dadAction: 'Check-in 訂餐時出示：<br>「足が悪いので、食事の移動も含め、全て<b>ゴルフカート (GOLF CART)</b> でお願いします。」<br>⚠️ 記住提佢哋 <b>GOLF CART</b> 出入！', parking: '直接駛入 Lobby 門口', phone: '0967-44-1101' }
+                            { time: '12:30', title: '🌸 城下公園 (睇櫻花)', category: 'sightseeing', desc: 'Tel: 0977-72-4255\n食飽飯去日出城址睇百株櫻花！\n有別府灣無敵海景加持，超靚！', transportType: 'car', travelTime: '15分鐘', location: '城下公園', dadAction: '✅ <b>輪椅賞花攻略：</b> 導航至「二の丸館」停車場，行過去公園路面平坦，喺海邊慢慢推輪椅賞櫻極度寫意！', parking: '二の丸館駐車場 (免費) / 輸入電話導航', phone: '0977-72-4255' },
+                            { time: '13:45', title: '由布院 (分頭行事)', category: 'sightseeing', desc: '導航至 Cafe La Ruche: 0977-28-8500', transportType: 'car', travelTime: '40分鐘 (經高速)', location: '金鱗湖', dadAction: '1. 爸爸+姑丈 -> Cafe La Ruche 湖邊嘆茶\n2. 媽媽+姑姐 -> 湯之坪街道 掃貨', parking: '首選: 天祖神社 (必泊)\n次選: 狹霧台展望台 (看風景不落市區)', phone: '0977-28-8500' },
+                            { time: '16:15', title: '出發往黑川溫泉', category: 'transport', desc: '山路較多，請慢駛', transportType: 'car', travelTime: '40km (1小時)' },
+                            { time: '17:15', title: 'Check-in 深山山莊', category: 'hotel', desc: 'Tel: 0967-44-1101', transportType: 'car', location: '黒川温泉 深山山荘', dadAction: 'Check-in 訂餐時出示：<br>「足が悪いので、食事の移動も含め、全て<b>ゴルフカート (GOLF CART)</b> でお願いします。」<br>⚠️ 記住提佢哋 <b>GOLF CART</b> 出入！', parking: '直接駛入 Lobby 門口', phone: '0967-44-1101' }
                         ],
                         // Day 3 
                         [
@@ -726,7 +727,7 @@
                             { time: '19:30', title: '晚餐: 博多華味鳥 (天神西通店)', category: 'food', desc: 'Tel: 092-724-0502\n✨ <span class="highlight-red">已預約: 19:30 (預約號 #83975)</span>', transportType: 'walk', location: '博多華味鳥 天神西通り店', dadAction: '✅ 由酒店推輪椅直行散步約8分鐘，大廈有電梯直達！\n⚠️ <span class="highlight-red">出示救命卡確保係「Table席」。絕對唔可以飲湯底/食雜炊(粥)！</span>', parking: '車泊在「紙与大名」不過夜，直接行路去', phone: '092-724-0502' },
                             { time: '21:30', title: '回程酒店 (JAL City)', category: 'hotel', desc: '休息', transportType: 'walk', location: 'Hotel JAL City Fukuoka Tenjin', phone: '092-712-7575', dadAction: '慢慢散步返酒店。' }
                         ],
-                        // Day 5 
+                        // Day 5
                         [
                             { time: '08:30', title: '早餐: Bills 福岡', category: 'food', desc: 'Tel: 092-733-2555', transportType: 'car', location: 'Bills Fukuoka', dadAction: '水上公園 Ship Garden 1F', parking: '西中洲駐車場', phone: '092-733-2555' },
                             { time: '09:30', title: '出發往海之中道', category: 'transport', desc: '車程約 35 分鐘', transportType: 'car', travelTime: '35分鐘' },
