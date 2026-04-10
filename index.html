@@ -27,6 +27,8 @@
             --shadow-soft: 0 8px 24px rgba(0, 137, 123, 0.15);
         }
 
+        [v-cloak] { display: none !important; }
+
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
             background-color: var(--bg-onsen);
@@ -92,7 +94,7 @@
 
     <div id="error-log" style="color: #C62828; padding: 20px; font-weight: bold; background: #FFEBEE; display: none; height: 100vh; width: 100vw; position: absolute; z-index: 99999;"></div>
 
-    <div id="app" class="h-full flex flex-col relative transition-colors duration-700" :style="{ fontSize: settings.fontSize + 'px' }">
+    <div id="app" v-cloak class="h-full flex flex-col relative transition-colors duration-700" :style="{ fontSize: settings.fontSize + 'px' }">
 
         <div class="flex-1 flex flex-col relative z-10 h-full">
             
@@ -272,8 +274,7 @@
                                 </div>
                                 <div class="bg-[#FFF3E0] p-3 rounded-xl text-xs text-[#E65100] border border-dashed border-[#FFE0B2]">
                                     <strong class="block mb-1"><i class="fa-solid fa-gas-pump mr-1"></i>極重要提示:</strong>
-                                    1. 必須 <span class="font-black bg-[#FFE0B2] px-1 rounded">入滿油</span> 先可以還車！⛽<br>
-                                    2. 必帶：護照 + 國際車牌 (IDP) 🪪
+                                    1. 必須 <span class="font-black bg-[#FFE0B2] px-1 rounded">入滿油</span> 先可以還車！⛽<br>2. 必帶：護照 + 國際車牌 (IDP) 🪪
                                 </div>
                             </div>
                         </div>
@@ -421,10 +422,10 @@
                 </div>
                 
                 <div class="grid grid-cols-2 gap-3 mt-4">
-                    <a href="https://www.google.com/maps/search/道之驛" target="_blank" class="bg-blue-500 text-white py-3 rounded-2xl font-bold shadow-md flex flex-col items-center">
+                    <a href="https://maps.google.com/?cid=5081439384237402281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="bg-blue-500 text-white py-3 rounded-2xl font-bold shadow-md flex flex-col items-center">
                         <i class="fa-solid fa-restroom text-2xl mb-1"></i><span>搵 廁所</span>
                     </a>
-                    <a href="https://www.google.com/maps/search/便利店" target="_blank" class="bg-orange-500 text-white py-3 rounded-2xl font-bold shadow-md flex flex-col items-center">
+                    <a href="https://maps.google.com/?cid=2263803662553298462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="bg-orange-500 text-white py-3 rounded-2xl font-bold shadow-md flex flex-col items-center">
                         <i class="fa-solid fa-store text-2xl mb-1"></i><span>搵 便利店</span>
                     </a>
                 </div>
@@ -437,7 +438,7 @@
                 <h3 class="text-lg font-bold text-[#004D40] mb-4">🏠 今晚返邊度?</h3>
                 <div v-if="currentNightHotel" class="bg-[#E0F2F1] p-4 rounded-2xl border border-[#B2DFDB] space-y-3">
                     <h2 class="text-xl font-black text-[#00695C]">{{ currentNightHotel.name }}</h2>
-                    <div v-if="currentNightHotel.phone" class="text-sm text-gray-600 font-bold"><i class="fa-solid fa-phone mr-1"></i>{{ currentNightHotel.phone }}</div>
+                    <div class="text-sm text-gray-600 font-bold"><i class="fa-solid fa-phone mr-1"></i>{{ currentNightHotel.phone }}</div>
                     <button @click="openMap(currentNightHotel.name)" class="w-full bg-[#00897B] text-white py-3 rounded-2xl font-bold shadow-md active:scale-95"><i class="fa-solid fa-location-arrow mr-2"></i> Google Map 導航</button>
                 </div>
                 <button @click="showHotelModal = false" class="w-full mt-4 text-gray-400 underline text-sm">關閉</button>
@@ -491,20 +492,25 @@
                         { date: `4/13`, time: `18:45`, name: `一蘭 (天神西通り店)`, addr: `福岡市中央区大名2-1-57`, tel: `092-713-6631`, note: `普通高身椅 (不需除鞋)` }
                     ],
                     itineraryData: [
+                        // Day 1
                         [
                             { time: `15:30`, title: `抵達福岡機場 & 租車`, category: `flight`, desc: `1. 到1F櫃檯辦手續<br>2. 上3F門口搭接駁車<br>3. 取車 Nissan Serena<br>4. 姑丈拍片驗車`, transportType: `car`, location: `福岡機場國際線`, dadAction: `爸爸去洗手間，媽媽陪同。`, phone: `092-621-0100` },
                             { time: `17:00`, title: `出發往別府`, category: `transport`, desc: `爸爸開 ACC 輕鬆揸<br>提示: 途經基山PA可去廁所`, transportType: `car`, travelTime: `145km (1小時50分)` },
                             { time: `19:30`, title: `晚餐: 活魚迴轉壽司 水天 (Suiten)`, category: `food`, desc: `別府最高級迴轉壽司，長老必愛！`, transportType: `car`, location: `Suiten Beppu Yamanote`, dadAction: `✅ 壽司店對痛風最友善！爸爸可主攻：茶碗蒸、玉子燒、烏冬、白身魚。<br>⚠️ <span class="highlight-red">出示救命卡要求「Table席 (テーブル席)」，輪椅直接泊埋去！</span>`, parking: `餐廳自帶超大免費停車場`, phone: `0977-21-0465` },
                             { time: `21:00`, title: `Check-in 御宿野乃別府`, category: `hotel`, desc: `入住休息`, transportType: `car`, location: `御宿 野乃別府`, dadAction: `全館塌塌米。入大堂前抹乾淨輪椅轆。<br>🧊 <span class="highlight-red">必做: 冰敷腳部 (製冰機在大浴場層)。</span>`, parking: `酒店 Tower Parking`, phone: `0977-21-5489` }
                         ],
+                        // Day 2
                         [
                             { time: `10:00`, title: `海地獄`, category: `sightseeing`, desc: `睇藍色溫泉池`, transportType: `car`, travelTime: `6km (15分鐘)`, location: `海地獄`, dadAction: `只行外面鋪裝路。<span class="highlight-red">嚴禁推入温室 (路窄/濕熱)。</span>`, parking: `門口有超大免費停車場`, phone: `0977-66-0121` },
                             { time: `11:00`, title: `午餐: 地獄蒸工房 鉄輪`, category: `food`, desc: `自己蒸野食`, transportType: `car`, travelTime: `2分鐘`, location: `地獄蒸し工房 鉄輪`, dadAction: `爸爸先入座。姑丈買飛。爸爸只食蒸雞/蛋/菜。<br>✅ <span class="highlight-red">霸位時揀普通枱！蒸煮食物去油減脂，對痛風極度友善！</span>`, parking: `鉄輪温泉地区駐車場 (輸入餐廳電話即可: 0977-66-3775)`, phone: `0977-66-3775` },
                             { time: `12:30`, title: `🌸 城下公園 (賞櫻)`, category: `sightseeing`, desc: `食飽飯去日出城址睇百株櫻花！<br>有別府灣無敵海景加持，超靚！`, transportType: `car`, travelTime: `15分鐘`, location: `城下公園`, dadAction: `✅ <b>輪椅賞花攻略：</b> 導航至「二の丸館」停車場，行過去公園路面平坦，喺海邊慢慢推輪椅賞櫻極度寫意！`, parking: `二の丸館駐車場 (免費) / 輸入電話導航`, phone: `0977-72-4255` },
                             { time: `13:45`, title: `由布院 (分頭行事)`, category: `sightseeing`, desc: `導航至 Cafe La Ruche: 0977-28-8500`, transportType: `car`, travelTime: `40分鐘 (經高速)`, location: `金鱗湖`, dadAction: `1. 爸爸+姑丈 -> Cafe La Ruche 湖邊嘆茶<br>2. 媽媽+姑姐 -> 湯之坪街道 掃貨`, parking: `首選: 天祖神社 (必泊)<br>次選: 狹霧台展望台 (看風景不落市區)`, phone: `0977-28-8500` },
                             { time: `16:15`, title: `出發往黑川溫泉`, category: `transport`, desc: `山路較多，請慢駛`, transportType: `car`, travelTime: `40km (1小時)` },
-                            { time: `17:15`, title: `Check-in 深山山莊`, category: `hotel`, desc: `Check-in 休息`, transportType: `car`, location: `黒川温泉 深山山荘`, dadAction: `Check-in 訂餐時出示：<br>「足が悪いので、食事の移動も含め、全て<b>ゴルフカート (GOLF CART)</b> でお願いします。」<br>⚠️ 記住提佢哋 <b>GOLF CART</b> 出入！`, parking: `直接駛入 Lobby 門口`, phone: `0967-44-1101` }
+                            { time: `17:15`, title: `📸 黑川溫泉街 (丸鈴橋打卡)`, category: `sightseeing`, desc: `「湯明」竹燈籠絕景！<br>唔使落樓梯，喺橋上已經影到超靚全景！`, transportType: `car`, location: `丸鈴橋`, dadAction: `✅ <b>輪椅打卡秘訣：</b> 泊「風の舎」客務中心停車場，沿平路推 2 分鐘就到「丸鈴橋」。橋面平坦，爸爸坐喺輪椅度可以完美同河景、燈籠大合照，完全無障礙！`, parking: `風の舎 (免費客務中心停車場)`, phone: `0967-44-0076` },
+                            { time: `17:45`, title: `出發往深山山莊`, category: `transport`, desc: `駛入溫泉旅館`, transportType: `car`, travelTime: `5分鐘` },
+                            { time: `18:00`, title: `Check-in 深山山莊`, category: `hotel`, desc: `辦理入住 & 晚餐`, transportType: `car`, location: `黒川温泉 深山山荘`, dadAction: `Check-in 訂餐時出示：<br>「足が悪いので、食事の移動も含め、全て<b>ゴルフカート (GOLF CART)</b> でお願いします。」<br>⚠️ 記住提佢哋 <b>GOLF CART</b> 出入！`, parking: `直接駛入 Lobby 門口`, phone: `0967-44-1101` }
                         ],
+                        // Day 3
                         [
                             { time: `10:30`, title: `久住花公園`, category: `sightseeing`, desc: `Kuju Flower Park`, transportType: `car`, travelTime: `1小時`, location: `久住花公園`, dadAction: `門口落客。園內全平路/遊園車。`, parking: `門口免費場`, phone: `0974-76-1422` },
                             { time: `12:15`, title: `午餐: あか牛丼いわさき`, category: `food`, desc: `阿蘇超人氣赤牛丼！<br>⚠️ <span class="highlight-red">車機請入 0967 固網電話</span>`, transportType: `car`, travelTime: `45分鐘`, location: `あか牛丼いわさき`, dadAction: `門口平路入。<br>⚠️ <span class="highlight-red">出示救命卡確保「Table席」。爸爸叫「烏冬/熟食定食」，避開紅牛！</span>`, parking: `餐廳自帶免費停車場`, phone: `0967-32-2677` },
@@ -514,6 +520,7 @@
                             { time: `17:45`, title: `Check-in 御宿野乃熊本`, category: `hotel`, desc: `入住休息`, transportType: `car`, location: `御宿 野乃熊本`, dadAction: `🧊 <span class="highlight-red">必做: 冰敷腳部 (自販機層有製冰機)。</span>`, parking: `酒店後門立體場 / 辛島公園`, phone: `096-311-5489` },
                             { time: `19:15`, title: `晚餐: 勝烈亭 豬排`, category: `food`, desc: `熊本最強炸豬排`, transportType: `walk`, location: `勝烈亭 新市街本店`, dadAction: `泊辛島公園地下。爸爸門口坐，姑姐排隊。<br>⚠️ <span class="highlight-red">出示救命卡確保「Table席」。炸物熱氣/豬肉普林高，爸爸只可食少少，多食菜。</span>`, parking: `辛島公園地下停車場`, phone: `096-322-8771` }
                         ],
+                        // Day 4
                         [
                             { time: `11:00`, title: `出發往柳川`, category: `transport`, desc: `高速公路`, transportType: `car`, travelTime: `60km (1小時15分)` },
                             { time: `12:30`, title: `午餐: 若松屋 (Wakamatsuya)`, category: `food`, desc: `柳川頂級老字號，環境絕美！`, transportType: `car`, location: `若松屋 柳川`, dadAction: `門口平路，全店130個Table席。出示救命卡確保「Table席」。其他人食特上鰻魚蒸籠飯。<br>⚠️ <span class="highlight-red">痛風救星: 爸爸叫「親子丼(滑蛋雞肉飯) / 玉子蒸籠飯」。完美避開痛風陷阱！</span>`, parking: `餐廳附設專屬停車場`, phone: `0944-72-3163` },
@@ -523,6 +530,7 @@
                             { time: `19:30`, title: `晚餐: 博多華味鳥 (天神西通店)`, category: `food`, desc: `✨ <span class="highlight-red">已預約: 19:30 (預約號 #83975)</span>`, transportType: `walk`, location: `博多華味鳥 天神西通り店`, dadAction: `✅ 由酒店推輪椅直行散步約8分鐘，大廈有電梯直達！<br>⚠️ <span class="highlight-red">出示救命卡確保係「Table席」。絕對唔可以飲湯底/食雜炊(粥)！</span>`, parking: `車泊在「紙与大名」不過夜，直接行路去`, phone: `092-724-0502` },
                             { time: `21:30`, title: `回程酒店 (JAL City)`, category: `hotel`, desc: `休息`, transportType: `walk`, location: `Hotel JAL City Fukuoka Tenjin`, phone: `092-712-7575`, dadAction: `慢慢散步返酒店。` }
                         ],
+                        // Day 5
                         [
                             { time: `08:30`, title: `早餐: Bills 福岡`, category: `food`, desc: `世界第一早餐`, transportType: `car`, location: `Bills Fukuoka`, dadAction: `水上公園 Ship Garden 1F`, parking: `西中洲駐車場`, phone: `092-733-2555` },
                             { time: `09:30`, title: `出發往海之中道`, category: `transport`, desc: `車程約 35 分鐘`, transportType: `car`, travelTime: `35分鐘` },
@@ -533,6 +541,7 @@
                             { time: `18:45`, title: `晚餐: 一蘭 天神西通り`, category: `food`, desc: `拉麵名物`, transportType: `car`, travelTime: `20分鐘`, location: `一蘭 天神西通り店`, dadAction: `姑姐排隊。此店為普通高身椅(不用除鞋)。爸爸在無印坐等。<br>⚠️ <span class="highlight-red">嚴禁飲湯！只可食麵。</span>`, parking: `首選: 天神地下街停車場 (南)<br>次選: 安國駐車場`, phone: `092-713-6631` },
                             { time: `20:30`, title: `回程酒店 (JAL City)`, category: `hotel`, desc: `休息<br>🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>`, transportType: `car`, location: `Hotel JAL City Fukuoka Tenjin`, dadAction: `門口落客，姑丈去泊車。<br>🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>`, parking: `<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Tel: 092-722-6066<br>C. 安国駐車場 (近)<br>   Tel: 092-741-5460`, phone: `092-712-7575` }
                         ],
+                        // Day 6
                         [
                             { time: `10:00`, title: `買包: Full Full`, category: `food`, desc: `明太法包`, phone: `092-292-7838`, dadAction: `姑丈兜圈，媽媽買包。` },
                             { time: `11:30`, title: `福岡機場 (國內線)`, category: `shopping`, desc: `最後掃貨`, phone: `092-621-6059`, dadAction: `爸爸 2F 坐，其他人掃貨。買努努雞。`, parking: `國內線立體停車場` },
@@ -610,7 +619,7 @@
                         ? `bg-[#00897B] text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center scale-110 transition-all` 
                         : `bg-white/90 text-[#00897B] w-8 h-8 rounded-full shadow flex items-center justify-center transition-all`;
                 },
-                openMap(loc) { if(loc) window.open(`https://www.google.com/maps/search/` + encodeURIComponent(loc), '_blank'); },
+                openMap(loc) { if(loc) window.open(`https://maps.google.com/?cid=6037720874695441850&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ` + encodeURIComponent(loc), '_blank'); },
                 openDoc() { window.open('https://docs.google.com/document/d/1-9dK_8o7HFytaM7hXTRCqiuSNXSW5wifVBBlOKS7PQQ/edit', '_blank'); },
                 openImage(src) { this.currentImageSrc = src; this.showImageModal = true; },
                 openGallery(idx) { this.currentGalleryIndex = idx; this.showGalleryModal = true; },
