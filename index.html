@@ -438,7 +438,7 @@
                 <h3 class="text-lg font-bold text-[#004D40] mb-4">🏠 今晚返邊度?</h3>
                 <div v-if="currentNightHotel" class="bg-[#E0F2F1] p-4 rounded-2xl border border-[#B2DFDB] space-y-3">
                     <h2 class="text-xl font-black text-[#00695C]">{{ currentNightHotel.name }}</h2>
-                    <div class="text-sm text-gray-600 font-bold"><i class="fa-solid fa-phone mr-1"></i>{{ currentNightHotel.phone }}</div>
+                    <div v-if="currentNightHotel.phone" class="text-sm text-gray-600 font-bold"><i class="fa-solid fa-phone mr-1"></i>{{ currentNightHotel.phone }}</div>
                     <button @click="openMap(currentNightHotel.name)" class="w-full bg-[#00897B] text-white py-3 rounded-2xl font-bold shadow-md active:scale-95"><i class="fa-solid fa-location-arrow mr-2"></i> Google Map 導航</button>
                 </div>
                 <button @click="showHotelModal = false" class="w-full mt-4 text-gray-400 underline text-sm">關閉</button>
@@ -506,7 +506,7 @@
                             { time: `12:30`, title: `🌸 城下公園 (賞櫻)`, category: `sightseeing`, desc: `食飽飯去日出城址睇百株櫻花！<br>有別府灣無敵海景加持，超靚！`, transportType: `car`, travelTime: `15分鐘`, location: `城下公園`, dadAction: `✅ <b>輪椅賞花攻略：</b> 導航至「二の丸館」停車場，行過去公園路面平坦，喺海邊慢慢推輪椅賞櫻極度寫意！`, parking: `二の丸館駐車場 (免費) / 輸入電話導航`, phone: `0977-72-4255` },
                             { time: `13:45`, title: `由布院 (分頭行事)`, category: `sightseeing`, desc: `導航至 Cafe La Ruche: 0977-28-8500`, transportType: `car`, travelTime: `40分鐘 (經高速)`, location: `金鱗湖`, dadAction: `1. 爸爸+姑丈 -> Cafe La Ruche 湖邊嘆茶<br>2. 媽媽+姑姐 -> 湯之坪街道 掃貨`, parking: `首選: 天祖神社 (必泊)<br>次選: 狹霧台展望台 (看風景不落市區)`, phone: `0977-28-8500` },
                             { time: `16:15`, title: `出發往黑川溫泉`, category: `transport`, desc: `山路較多，請慢駛`, transportType: `car`, travelTime: `40km (1小時)` },
-                            { time: `17:15`, title: `📸 黑川溫泉街 (丸鈴橋打卡)`, category: `sightseeing`, desc: `「湯明」竹燈籠絕景！<br>唔使落樓梯，喺橋上已經影到超靚全景！`, transportType: `car`, location: `丸鈴橋`, dadAction: `✅ <b>輪椅打卡秘訣：</b> 泊「風の舎」客務中心停車場，沿平路推 2 分鐘就到「丸鈴橋」。橋面平坦，爸爸坐喺輪椅度可以完美同河景、燈籠大合照，完全無障礙！`, parking: `風の舎 (免費客務中心停車場)`, phone: `0967-44-0076` },
+                            { time: `17:15`, title: `📸 黑川溫泉街 (丸鈴橋打卡)`, category: `sightseeing`, desc: `傳統溫泉鄉絕美河景！<br>唔使落斜坡，喺橋上已經影到超靚全景！`, transportType: `car`, location: `丸鈴橋`, dadAction: `✅ <b>輪椅打卡秘訣：</b> 泊「風の舎」客務中心停車場，沿平路推 2 分鐘就到「丸鈴橋」。橋面平坦，爸爸坐喺輪椅度可以完美同傳統溫泉旅館、河景大合照，完全無障礙！`, parking: `風の舎 (免費客務中心停車場)`, phone: `0967-44-0076` },
                             { time: `17:45`, title: `出發往深山山莊`, category: `transport`, desc: `駛入溫泉旅館`, transportType: `car`, travelTime: `5分鐘` },
                             { time: `18:00`, title: `Check-in 深山山莊`, category: `hotel`, desc: `辦理入住 & 晚餐`, transportType: `car`, location: `黒川温泉 深山山荘`, dadAction: `Check-in 訂餐時出示：<br>「足が悪いので、食事の移動も含め、全て<b>ゴルフカート (GOLF CART)</b> でお願いします。」<br>⚠️ 記住提佢哋 <b>GOLF CART</b> 出入！`, parking: `直接駛入 Lobby 門口`, phone: `0967-44-1101` }
                         ],
@@ -520,7 +520,7 @@
                             { time: `17:45`, title: `Check-in 御宿野乃熊本`, category: `hotel`, desc: `入住休息`, transportType: `car`, location: `御宿 野乃熊本`, dadAction: `🧊 <span class="highlight-red">必做: 冰敷腳部 (自販機層有製冰機)。</span>`, parking: `酒店後門立體場 / 辛島公園`, phone: `096-311-5489` },
                             { time: `19:15`, title: `晚餐: 勝烈亭 豬排`, category: `food`, desc: `熊本最強炸豬排`, transportType: `walk`, location: `勝烈亭 新市街本店`, dadAction: `泊辛島公園地下。爸爸門口坐，姑姐排隊。<br>⚠️ <span class="highlight-red">出示救命卡確保「Table席」。炸物熱氣/豬肉普林高，爸爸只可食少少，多食菜。</span>`, parking: `辛島公園地下停車場`, phone: `096-322-8771` }
                         ],
-                        // Day 4
+                        // Day 4 
                         [
                             { time: `11:00`, title: `出發往柳川`, category: `transport`, desc: `高速公路`, transportType: `car`, travelTime: `60km (1小時15分)` },
                             { time: `12:30`, title: `午餐: 若松屋 (Wakamatsuya)`, category: `food`, desc: `柳川頂級老字號，環境絕美！`, transportType: `car`, location: `若松屋 柳川`, dadAction: `門口平路，全店130個Table席。出示救命卡確保「Table席」。其他人食特上鰻魚蒸籠飯。<br>⚠️ <span class="highlight-red">痛風救星: 爸爸叫「親子丼(滑蛋雞肉飯) / 玉子蒸籠飯」。完美避開痛風陷阱！</span>`, parking: `餐廳附設專屬停車場`, phone: `0944-72-3163` },
@@ -552,7 +552,7 @@
                     ],
                     hotels: [
                         { name: `御宿 野乃別府`, dates: `4/9`, phone: `0977-21-5489` },
-                        { name: `黒川温泉 深山山荘`, dates: `4/10`, phone: `0967-44-1101` }, 
+                        { name: `黑川温泉 深山山莊`, dates: `4/10`, phone: `0967-44-1101` }, 
                         { name: `御宿 野乃熊本`, dates: `4/11`, phone: `096-311-5489` },
                         { name: `Hotel JAL City Fukuoka Tenjin`, dates: `4/12 - 4/14`, phone: `092-712-7575` }
                     ],
