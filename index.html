@@ -467,7 +467,7 @@
             data() {
                 return {
                     activeTab: `itinerary`,
-                    selectedDayIndex: 0, 
+                    selectedDayIndex: 4, // 預設顯示 Day 5 (聽日 4/13)
                     showModal: false, showSettings: false, showImageModal: false, showEmergencyModal: false, showHotelModal: false, showGalleryModal: false,
                     currentImageSrc: ``, currentGalleryIndex: 0, exchangeRate: 0.053, calcJpy: ``, calcHkd: ``, alarmsOpen: false,
                     touchStartX: 0, touchEndX: 0,
@@ -489,7 +489,7 @@
                         { date: `4/12`, time: `19:30`, name: `博多華味鳥 (天神西通店)`, addr: `福岡市中央区天神2-7-9 2F`, tel: `092-724-0502`, note: `預約號 #83975` },
                         { date: `4/13`, time: `08:30`, name: `Bills 福岡`, addr: `福岡市中央区西中洲13-1`, tel: `092-733-2555`, note: `世界第一早餐 (有𨋢/Table)` },
                         { date: `4/13`, time: `13:30`, name: `大東園 本店 (Daitoen)`, addr: `博多区上川端町 1-1-1`, tel: `092-282-0055`, note: `已預約 13:30入座` },
-                        { date: `4/13`, time: `18:45`, name: `一蘭 (天神西通り店)`, addr: `福岡市中央区大名2-1-57`, tel: `092-713-6631`, note: `普通高身椅 (不需除鞋)` }
+                        { date: `4/13`, time: `18:15`, name: `新鳥栖 道の市場`, addr: `佐賀県鳥栖市蔵上4-120`, tel: `0942-83-8444`, note: `大型室內美食街 / 有停車場` }
                     ],
                     itineraryData: [
                         // Day 1
@@ -510,7 +510,7 @@
                             { time: `17:45`, title: `出發往深山山莊`, category: `transport`, desc: `駛入溫泉旅館`, transportType: `car`, travelTime: `5分鐘` },
                             { time: `18:00`, title: `Check-in 深山山莊`, category: `hotel`, desc: `辦理入住 & 晚餐`, transportType: `car`, location: `黒川温泉 深山山荘`, dadAction: `Check-in 訂餐時出示：<br>「足が悪いので、食事の移動も含め、全て<b>ゴルフカート (GOLF CART)</b> でお願いします。」<br>⚠️ 記住提佢哋 <b>GOLF CART</b> 出入！`, parking: `直接駛入 Lobby 門口`, phone: `0967-44-1101` }
                         ],
-                        // Day 3 (🌟 Aso Milk Factory 神級加插版)
+                        // Day 3 
                         [
                             { time: `10:30`, title: `久住花公園`, category: `sightseeing`, desc: `Kuju Flower Park`, transportType: `car`, travelTime: `1小時`, location: `久住花公園`, dadAction: `門口落客。園內全平路/遊園車。`, parking: `門口免費場`, phone: `0974-76-1422` },
                             { time: `12:15`, title: `午餐: あか牛丼いわさき`, category: `food`, desc: `阿蘇超人氣赤牛丼！<br>⚠️ <span class="highlight-red">車機請入 0967 固網電話</span>`, transportType: `car`, travelTime: `45分鐘`, location: `あか牛丼いわさき`, dadAction: `門口平路入。<br>⚠️ <span class="highlight-red">出示救命卡確保「Table席」。爸爸叫「烏冬/熟食定食」，避開紅牛！</span>`, parking: `餐廳自帶免費停車場`, phone: `0967-32-2677` },
@@ -530,7 +530,7 @@
                             { time: `18:00`, title: `Check-in JAL City 天神`, category: `hotel`, desc: `入住休息`, transportType: `car`, location: `Hotel JAL City Fukuoka Tenjin`, dadAction: `車入酒店彎位落客。姑丈去泊車。`, parking: `<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Tel: 092-722-6066<br>C. 安国駐車場 (近)<br>   Tel: 092-741-5460`, phone: `092-712-7575` },
                             { time: `19:30`, title: `晚餐: 博多華味鳥 (天神西通店)`, category: `food`, desc: `✨ <span class="highlight-red">已預約: 19:30 (#83975)</span>`, transportType: `walk`, location: `博多華味鳥 天神西通り店`, dadAction: `✅ 由酒店推輪椅直行 8 分鐘，有電梯。⚠️ <b>絕不飲湯！</b>`, phone: `092-724-0502` }
                         ],
-                        // Day 5
+                        // Day 5 (🌟 新鳥栖 道の市場 神級加插版)
                         [
                             { time: `08:30`, title: `早餐: Bills 福岡`, category: `food`, desc: `世界第一早餐`, transportType: `car`, location: `Bills Fukuoka`, dadAction: `水上公園 Ship Garden 1F`, parking: `西中洲駐車場`, phone: `092-733-2555` },
                             { time: `09:30`, title: `出發往海之中道`, category: `transport`, desc: `駕車前往`, transportType: `car`, travelTime: `35分鐘` },
@@ -538,7 +538,9 @@
                             { time: `12:30`, title: `駕車返回福岡市`, category: `transport`, desc: `出發去食高級燒肉`, transportType: `car`, travelTime: `40分鐘` },
                             { time: `13:30`, title: `午餐: 大東園 本店 (Daitoen)`, category: `food`, desc: `✨ <span class="highlight-red">已預約: 13:30 (4位)</span>`, transportType: `car`, location: `大東園 本店`, dadAction: `門口落客搭電梯。出示救命卡確保「Table席」。<br>⚠️ <span class="highlight-red">痛風攻略: 爸爸食「上燒肉定食」(紅肉/菜)，嚴禁食內臟及飲牛骨湯！</span>`, parking: `櫛田神社駐車場 - 帶泊車飛`, phone: `092-282-0055` },
                             { time: `15:15`, title: `LaLaport 福岡`, category: `shopping`, desc: `高達商場`, transportType: `car`, travelTime: `20分鐘`, location: `LaLaport Fukuoka`, dadAction: `泊 South Entrance。入門口搵 Cafe 安置爸爸。`, parking: `South Parking`, phone: `092-707-9820` },
-                            { time: `18:45`, title: `晚餐: 一蘭 天神西通り`, category: `food`, desc: `拉麵名物`, transportType: `car`, travelTime: `20分鐘`, location: `一蘭 天神西通り店`, dadAction: `姑姐排隊。此店為普通高身椅(不用除鞋)。爸爸在無印坐等。<br>⚠️ <span class="highlight-red">嚴禁飲湯！只可食麵。</span>`, parking: `首選: 天神地下街停車場 (南)<br>次選: 安國駐車場`, phone: `092-713-6631` },
+                            { time: `17:30`, title: `出發往鳥栖`, category: `transport`, desc: `由 LaLaport 揸車去鳥栖`, transportType: `car`, travelTime: `45分鐘` },
+                            { time: `18:15`, title: `晚餐: 新鳥栖 道の市場`, category: `food`, desc: `超人氣室內美食街！<br>集合多間名店，可以一次過食勻生蠔、串燒、海鮮丼！`, transportType: `car`, location: `新鳥栖 道の市場`, dadAction: `✅ <b>輪椅極度友善！</b> 全平地室內 Food Court 模式。<br>⚠️ <b>痛風攻略：</b> 選擇極多，爸爸可以避開內臟及高湯，安全食熟海鮮或串燒！`, parking: `免費專屬停車場`, phone: `0942-83-8444` },
+                            { time: `19:45`, title: `駕車返回福岡市`, category: `transport`, desc: `食飽飽慢慢揸車返天神`, transportType: `car`, travelTime: `45分鐘` },
                             { time: `20:30`, title: `回程酒店 (JAL City)`, category: `hotel`, desc: `休息<br>🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>`, transportType: `car`, location: `Hotel JAL City Fukuoka Tenjin`, dadAction: `門口落客，姑丈去泊車。<br>🧊 <span class="highlight-red">必做: 最後一晚冰敷!</span>`, parking: `<b>🅿️ 泊車 4 選 1：</b><br>A. 酒店場 (¥2200/窄) ❌<br>B. <span class="highlight-red">紙与大名 (推薦) 👍</span><br>   Tel: 092-722-6066<br>C. 安国駐車場 (近)<br>   Tel: 092-741-5460`, phone: `092-712-7575` }
                         ],
                         // Day 6
@@ -547,7 +549,7 @@
                             { time: `11:30`, title: `福岡機場 (國內線)`, category: `shopping`, desc: `最後掃貨`, phone: `092-621-6059`, dadAction: `爸爸 2F 坐，其他人掃貨。買努努雞。`, parking: `國內線立體停車場` },
                             { time: `12:15`, title: `午餐: 一幸舎 / Oyama`, category: `food`, desc: `國內線 3F`, dadAction: `⚠️ <span class="highlight-red">不飲湯 / 不食內臟。</span>` },
                             { time: `13:45`, title: `還車 & 回程`, category: `transport`, desc: `前往國際線還車`, phone: `092-621-0100`, dadAction: `入滿油先好還車！爸爸穿鬆身拖鞋上機。` },
-                            { time: `14:30`, title: `Check-in (CX589)`, category: `flight`, desc: `通知地勤 Wheelchair Assistance`, dadAction: `由職員推爸爸去閘口！🥰` }
+                            { time: `14:30`, title: `Check-in (CX589)`, category: `flight`, desc: `通知地勤 Wheel এশিয়ার Assistance`, dadAction: `由職員推爸爸去閘口！🥰` }
                         ]
                     ],
                     hotels: [
@@ -591,7 +593,7 @@
                 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
                 
                 // 自動計算並跳轉到正確嘅日子！
-                this.selectedDayIndex = (diffDays >= 0 && diffDays < this.days.length) ? diffDays : 0;
+                this.selectedDayIndex = (diffDays >= 0 && diffDays < this.days.length) ? diffDays : 4; // 預設指去 Day 5 俾你睇
                 
                 this.fetchWeather();
                 document.documentElement.style.fontSize = this.settings.fontSize + 'px';
@@ -622,7 +624,7 @@
                         ? `bg-[#00897B] text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center scale-110 transition-all` 
                         : `bg-white/90 text-[#00897B] w-8 h-8 rounded-full shadow flex items-center justify-center transition-all`;
                 },
-                openMap(loc) { if(loc) window.open(`https://www.google.com/maps/search/?api=1&query=` + encodeURIComponent(loc), '_blank'); },
+                openMap(loc) { if(loc) window.open(`https://maps.app.goo.gl/gnEecgbGF2A68aFVA?g_st=ic` + encodeURIComponent(loc), '_blank'); },
                 openDoc() { window.open('https://docs.google.com/document/d/1-9dK_8o7HFytaM7hXTRCqiuSNXSW5wifVBBlOKS7PQQ/edit', '_blank'); },
                 openImage(src) { this.currentImageSrc = src; this.showImageModal = true; },
                 openGallery(idx) { this.currentGalleryIndex = idx; this.showGalleryModal = true; },
