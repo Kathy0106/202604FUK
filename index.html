@@ -467,7 +467,7 @@
             data() {
                 return {
                     activeTab: `itinerary`,
-                    selectedDayIndex: 2, // 預設顯示 Day 3 (今日 4/11)
+                    selectedDayIndex: 0, 
                     showModal: false, showSettings: false, showImageModal: false, showEmergencyModal: false, showHotelModal: false, showGalleryModal: false,
                     currentImageSrc: ``, currentGalleryIndex: 0, exchangeRate: 0.053, calcJpy: ``, calcHkd: ``, alarmsOpen: false,
                     touchStartX: 0, touchEndX: 0,
@@ -589,8 +589,10 @@
                 const tripStart = new Date('2026-04-09');
                 const diffTime = (new Date(today.getFullYear(), today.getMonth(), today.getDate())) - (new Date(tripStart.getFullYear(), tripStart.getMonth(), tripStart.getDate()));
                 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-                // 確保預設停留喺 Day 3 (4/11)
-                this.selectedDayIndex = 2; 
+                
+                // 自動計算並跳轉到正確嘅日子！
+                this.selectedDayIndex = (diffDays >= 0 && diffDays < this.days.length) ? diffDays : 0;
+                
                 this.fetchWeather();
                 document.documentElement.style.fontSize = this.settings.fontSize + 'px';
             },
